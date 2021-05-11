@@ -18,6 +18,7 @@
 		5C5715ED264AD65D0067EA6F /* QuizAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5715EC264AD65D0067EA6F /* QuizAppUITests.swift */; };
 		5C571634264B32D50067EA6F /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C571633264B32D50067EA6F /* Test.swift */; };
 		5C571639264B358A0067EA6F /* Test2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C571638264B358A0067EA6F /* Test2.swift */; };
+		5C57163E264B36D40067EA6F /* Test3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C57163D264B36D40067EA6F /* Test3.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		5C5715EE264AD65D0067EA6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5C571633264B32D50067EA6F /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		5C571638264B358A0067EA6F /* Test2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2.swift; sourceTree = "<group>"; };
+		5C57163D264B36D40067EA6F /* Test3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test3.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				5C5715D0264AD65B0067EA6F /* QuizApp.xcdatamodeld */,
 				5C571633264B32D50067EA6F /* Test.swift */,
 				5C571638264B358A0067EA6F /* Test2.swift */,
+				5C57163D264B36D40067EA6F /* Test3.swift */,
 			);
 			path = QuizApp;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				5C571634264B32D50067EA6F /* Test.swift in Sources */,
 				5C5715D2264AD65B0067EA6F /* QuizApp.xcdatamodeld in Sources */,
 				5C5715CA264AD65B0067EA6F /* SceneDelegate.swift in Sources */,
+				5C57163E264B36D40067EA6F /* Test3.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
