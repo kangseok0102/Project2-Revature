@@ -39,7 +39,7 @@ class LogInViewController: UIViewController {
         let forgotPassVC = storyboard.instantiateViewController(identifier: "forgotPass")
         forgotPassVC.modalPresentationStyle = .fullScreen
         let user = DBHelper.inst.fetchUser(username: usernameField.text)
-        if (user.password == passwordField.text) {
+        if (user.username == usernameField.text) {
             self.present(forgotPassVC, animated: false)
         } else {
             self.present(alertUsername, animated: true)
