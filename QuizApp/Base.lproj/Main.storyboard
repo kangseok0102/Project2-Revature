@@ -267,7 +267,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="195" id="zQV-R3-Poj" customClass="RankTableViewCell" customModule="QuizApp" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="195" id="zQV-R3-Poj">
                                                         <rect key="frame" x="0.0" y="28" width="398" height="195"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zQV-R3-Poj" id="OYw-Ua-5CW">
@@ -301,12 +301,6 @@
                                                                 </label>
                                                             </subviews>
                                                         </tableViewCellContentView>
-                                                        <connections>
-                                                            <outlet property="rankingLabel" destination="R9v-3Q-cc2" id="2hp-9E-P4X"/>
-                                                            <outlet property="scoreLabel" destination="XIc-Cs-KvK" id="Mz9-cx-Gm1"/>
-                                                            <outlet property="userImage" destination="VAX-nx-YOC" id="FAc-kN-q8P"/>
-                                                            <outlet property="usernameLabel" destination="HTV-ny-sIA" id="P0h-LK-aaX"/>
-                                                        </connections>
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
@@ -343,9 +337,6 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="414" height="1200"/>
-                    <connections>
-                        <outlet property="table" destination="Jew-QR-YXg" id="h0e-eJ-q5I"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s42-C3-h7b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -440,6 +431,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="mjL-ed-vur"/>
         <segue reference="GxI-ZS-Y1F"/>
     </inferredMetricsTieBreakers>
     <resources>
