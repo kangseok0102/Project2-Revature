@@ -11,6 +11,9 @@ class TestingViewController: UIViewController {
 
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
+    @IBOutlet weak var categoryTextField: UITextField!
+    static var categoryName: String = ""
+    let tvc = TestingViewController.self
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,14 +44,36 @@ class TestingViewController: UIViewController {
     
     
     @IBAction func printQuestionsAndAnswers(_ sender: Any) {
-        let question = DatabaseHelper.inst.fetchAllQuestionData()
-        for q in question {
-            print("Question: \(q.questionText!) Choices: \(q.choices?.choiceText!), Bool Values: \(q.choices?.isCorrect!)")
-            print(type(of: q.questionText))
-            print(type(of: q.choices?.choiceText![0]))
-            print(type(of: q.choices?.isCorrect![0]))
+        let category = DatabaseHelper.inst.fetchAllCategoriesData()
+        for c in category {
+            print("Category: \(c.name), Question: \(c.categories?.questionText!) Choices: \(c.categories?.choices?.choiceText!), Bool Values: \(c.categories?.choices?.isCorrect!)")
+            //print(type(of: q.questionText))
+            //print(type(of: q.choices?.choiceText![0]))
+            //print(type(of: q.choices?.isCorrect![0]))
             
         }
+    }
+    
+    @IBAction func viewAllCategories(_ sender: Any) {
+        let category = DatabaseHelper.inst.fetchAllCategoriesData()
+        for c in category {
+            print("Category Name: \(c.name)")
+        }
+    }
+    
+    
+    @IBAction func testQuiz(_ sender: Any) {
+        let categoryData = DatabaseHelper.inst.fetchAllCategoriesData()
+        
+        for c in categoryData {
+            if (categoryTextField.text == c.name) {
+                tvc.categoryName = categoryTextField.text!
+                let sBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let quizPage = sBoard.instantiateViewController(identifier: "Quiz") as! QuizViewController
+                present(quizPage, animated: true, completion: nil)
+            }
+        }
+        print("Error, no category name exists")
     }
     
 }

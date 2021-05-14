@@ -9,14 +9,18 @@ import UIKit
 
 class QuizViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var answerTableView: UITableView!
-    let data = DatabaseHelper.inst.fetchAllQuestionData()
+    //let data = DatabaseHelper.inst.fetchAllQuestionData()
+    let categoryData = DatabaseHelper.inst.fetchAllCategoriesData()
     var quizQuestions = [Question]()
     var currentQuestion: Question?
+    var currentCategory = TestingViewController.categoryName
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        categoryLabel.text = currentCategory
         answerTableView.delegate = self
         answerTableView.dataSource = self
         setupQuestions()
@@ -56,13 +60,15 @@ class QuizViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     private func setupQuestions() {
-        for q in data {
-            quizQuestions.append(Question(text: q.questionText!, choice: [
-                Choice(text: (q.choices?.choiceText![0])!, isCorrect: (q.choices?.isCorrect![0])!),
-                Choice(text: (q.choices?.choiceText![1])!, isCorrect: (q.choices?.isCorrect![1])!),
-                Choice(text: (q.choices?.choiceText![2])!, isCorrect: (q.choices?.isCorrect![2])!),
-                Choice(text: (q.choices?.choiceText![3])!, isCorrect: (q.choices?.isCorrect![3])!)
-        ]))
+        for q in categoryData {
+            if (q.name == currentCategory) {
+                quizQuestions.append(Question(text: (q.categories?.questionText!)!, choice: [
+                    Choice(text: (q.categories?.choices?.choiceText![0])!, isCorrect: (q.categories?.choices?.isCorrect![0])!),
+                    Choice(text: (q.categories?.choices?.choiceText![1])!, isCorrect: (q.categories?.choices?.isCorrect![1])!),
+                    Choice(text: (q.categories?.choices?.choiceText![2])!, isCorrect: (q.categories?.choices?.isCorrect![2])!),
+                    Choice(text: (q.categories?.choices?.choiceText![3])!, isCorrect: (q.categories?.choices?.isCorrect![3])!)
+                ]))
+            }
         }
     }
     

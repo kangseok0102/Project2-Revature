@@ -425,7 +425,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iim-5M-NMr">
-                                <rect key="frame" x="243" y="554" width="103" height="30"/>
+                                <rect key="frame" x="156" y="728" width="103" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="To quiz creator"/>
                                 <connections>
@@ -433,11 +433,33 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGj-T3-470">
-                                <rect key="frame" x="254" y="480" width="80" height="30"/>
+                                <rect key="frame" x="167" y="570" width="80" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="To test quiz"/>
                                 <connections>
-                                    <segue destination="4QJ-Vy-AtF" kind="show" id="puz-07-hqQ"/>
+                                    <action selector="testQuiz:" destination="f5B-Ie-Lhp" eventType="touchUpInside" id="ouN-7v-t5e"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGV-i5-iEN">
+                                <rect key="frame" x="137" y="507" width="140" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Category for Quiz:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7dG-KV-rQP">
+                                <rect key="frame" x="115" y="465" width="184" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Hw-tw-4bS">
+                                <rect key="frame" x="32" y="254" width="96" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                                <state key="normal" title="All Categories"/>
+                                <connections>
+                                    <action selector="viewAllCategories:" destination="f5B-Ie-Lhp" eventType="touchUpInside" id="aHy-ZX-pqz"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -462,55 +484,70 @@
                     </view>
                     <navigationItem key="navigationItem" id="NTQ-nT-wL5"/>
                     <connections>
+                        <outlet property="categoryTextField" destination="gGV-i5-iEN" id="zO3-k8-94z"/>
                         <outlet property="passTextField" destination="C2d-br-T2f" id="css-Rr-Epp"/>
                         <outlet property="userTextField" destination="dqu-8a-JN1" id="QhK-Uq-7Sn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HpE-uv-fve" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-845" y="1700"/>
+            <point key="canvasLocation" x="-775" y="1629"/>
         </scene>
         <!--Set Quiz Properties View Controller-->
         <scene sceneID="gH8-sU-Dqd">
             <objects>
-                <viewController id="B16-ML-5l5" customClass="SetQuizPropertiesViewController" customModule="QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="B16-ML-5l5" customClass="SetQuizPropertiesViewController" customModule="QuizApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ExP-E3-uwJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9hk-nQ-uMU">
-                                <rect key="frame" x="159" y="147" width="97" height="34"/>
+                                <rect key="frame" x="138" y="249" width="140" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How many Questions for a Quiz" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7EX-FY-DD0">
-                                <rect key="frame" x="88" y="102" width="239" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How many Questions for this Category?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7EX-FY-DD0">
+                                <rect key="frame" x="58" y="196" width="301" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QBY-wP-Fwm">
-                                <rect key="frame" x="189" y="208" width="37" height="30"/>
+                                <rect key="frame" x="190" y="303" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Enter"/>
                                 <connections>
                                     <action selector="pressButton:" destination="B16-ML-5l5" eventType="touchUpInside" id="2Fj-UW-iB2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name of New Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boz-Ll-FJK">
+                                <rect key="frame" x="116" y="72" width="182" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Category Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fsg-6Q-qH1">
+                                <rect key="frame" x="115" y="113" width="185" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="X2Z-Hg-Cl2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="OtU-Vp-FxG"/>
                     <connections>
+                        <outlet property="categoryNameTextField" destination="Fsg-6Q-qH1" id="bC7-Pi-lX0"/>
                         <outlet property="numTextField" destination="9hk-nQ-uMU" id="0aN-kr-lON"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="szE-Im-kvY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7" y="2051"/>
+            <point key="canvasLocation" x="5.7971014492753632" y="2050.4464285714284"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="DqL-T6-1NT">
@@ -602,13 +639,13 @@
         <!--Quiz View Controller-->
         <scene sceneID="Rca-tX-KiE">
             <objects>
-                <viewController id="4QJ-Vy-AtF" customClass="QuizViewController" customModule="QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Quiz" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4QJ-Vy-AtF" customClass="QuizViewController" customModule="QuizApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SAl-rY-q7s">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Roh-SS-4QJ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                <rect key="frame" x="0.0" y="94" width="414" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="eZT-Ng-YSV"/>
                                 </constraints>
@@ -616,23 +653,34 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uhn-Nb-FH9">
-                                <rect key="frame" x="20" y="251" width="374" height="238"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uhn-Nb-FH9">
+                                <rect key="frame" x="0.0" y="294" width="414" height="250"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="dDF-pR-5ze"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="listChoice" id="3Qg-kV-Jpm">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Qg-kV-Jpm" id="XNO-sh-m7H">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gO9-0I-429">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="MMR-mx-tKb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rN5-BH-iMd">
-                                <rect key="frame" x="190" y="635" width="34" height="30"/>
+                                <rect key="frame" x="190" y="651" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
@@ -643,14 +691,21 @@
                         <viewLayoutGuide key="safeArea" id="euz-1l-4Tp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Roh-SS-4QJ" firstAttribute="top" secondItem="euz-1l-4Tp" secondAttribute="top" id="AZH-MY-1ZV"/>
-                            <constraint firstItem="euz-1l-4Tp" firstAttribute="trailing" secondItem="Roh-SS-4QJ" secondAttribute="trailing" id="F1c-Bm-X6l"/>
-                            <constraint firstItem="Roh-SS-4QJ" firstAttribute="leading" secondItem="euz-1l-4Tp" secondAttribute="leading" id="ol9-5S-Cne"/>
+                            <constraint firstItem="Uhn-Nb-FH9" firstAttribute="leading" secondItem="euz-1l-4Tp" secondAttribute="leading" id="2TX-iy-T7f"/>
+                            <constraint firstItem="Roh-SS-4QJ" firstAttribute="trailing" secondItem="euz-1l-4Tp" secondAttribute="trailing" id="GrG-Kg-Io3"/>
+                            <constraint firstItem="Uhn-Nb-FH9" firstAttribute="top" secondItem="Roh-SS-4QJ" secondAttribute="bottom" id="RGg-CD-OOD"/>
+                            <constraint firstItem="gO9-0I-429" firstAttribute="leading" secondItem="euz-1l-4Tp" secondAttribute="leading" id="SWh-6U-CU7"/>
+                            <constraint firstItem="gO9-0I-429" firstAttribute="top" secondItem="euz-1l-4Tp" secondAttribute="top" id="afI-nh-sdl"/>
+                            <constraint firstItem="euz-1l-4Tp" firstAttribute="trailing" secondItem="Uhn-Nb-FH9" secondAttribute="trailing" id="dog-BI-WPX"/>
+                            <constraint firstItem="euz-1l-4Tp" firstAttribute="trailing" secondItem="gO9-0I-429" secondAttribute="trailing" id="eLW-CA-OWv"/>
+                            <constraint firstItem="Roh-SS-4QJ" firstAttribute="top" secondItem="gO9-0I-429" secondAttribute="bottom" id="hq2-Up-NaI"/>
+                            <constraint firstItem="Roh-SS-4QJ" firstAttribute="leading" secondItem="euz-1l-4Tp" secondAttribute="leading" id="j66-ca-jwG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ja1-1S-ZeR"/>
                     <connections>
                         <outlet property="answerTableView" destination="Uhn-Nb-FH9" id="D3D-kF-LWC"/>
+                        <outlet property="categoryLabel" destination="gO9-0I-429" id="LIL-hB-ZAZ"/>
                         <outlet property="questionLabel" destination="Roh-SS-4QJ" id="3Ih-Bp-I9W"/>
                     </connections>
                 </viewController>

@@ -32,21 +32,25 @@ class DatabaseHelper {
     
     func saveQuestionAndChoices(question: String, listOfChoices: [String], listOfBool: [Bool]) {
         //Method Saves Questions and Answers for a Quiz
+        let category = NSEntityDescription.insertNewObject(forEntityName: "Categories", into: context!) as! Categories
         let answers = NSEntityDescription.insertNewObject(forEntityName: "Choices", into: context!) as! Choices
         let questions = NSEntityDescription.insertNewObject(forEntityName: "Questions", into: context!) as! Questions
         answers.choiceText = listOfChoices
         answers.isCorrect = listOfBool
         do{
             try context?.save()
-            print("course data saved")
+            print("Potential Answers Data saved")
         }
         catch{
-            print("data not saved")
+            print("Data not saved")
         }
         //print(listOfChoices)
         //print(listOfBool)
+        category.name = SetQuizPropertiesViewController.categoryName
+        category.totalQuestions = SetQuizPropertiesViewController.numOfQuestionsOnNewQuiz!
         questions.questionText = question
         questions.choices = answers
+        category.categories = questions
         do {
             try context?.save()
             print("Saving Answer and Choices Successful")
@@ -67,6 +71,19 @@ class DatabaseHelper {
             print("Cannot Fetch Data")
         }
         return user
+    }
+    
+    func fetchAllCategoriesData() -> [Categories] {
+        var category = [Categories]()
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Categories")
+        do {
+            category = try context?.fetch(fetchReq) as! [Categories]
+            print("Category Data Fetched")
+        }
+        catch {
+            print("Cannot Fetch Data")
+        }
+        return category
     }
     
     func fetchAllQuestionData() -> [Questions] {
