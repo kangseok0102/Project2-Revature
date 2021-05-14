@@ -11,15 +11,35 @@ import SideMenu
 class MenuViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     
+    var categories : [Category] = []
+    var categoryCreationData : [String : Bool] = [:]
+    
+    var QImg = ["JavaImg", "PythonImg", "SwiftImg"]
+    var QIcon = ["Java", "Python", "Swift"]
+    var QLabel = ["Jave Quiz", "Python Quiz", "Swift Quiz"]
+    var QDes = ["Select Java Quiz", "Select Python Quiz", "Select Swift Quiz"]
+    
     var menu: SideMenuNavigationController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        for i in 0 ..< QIcon.count {
+            categoryCreationData.updateValue(false, forKey: QIcon[i])
+        }
+        
+        newQuizNotificationLabel.isHidden = true
         
         menu = SideMenuNavigationController(rootViewController: MenuTableViewController())
         menu?.leftSide = true
         menu?.setNavigationBarHidden(true, animated: false)
         SideMenuManager.default.leftMenuNavigationController = menu
         SideMenuManager.default.addPanGestureToPresent(toView: view)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(update(_ :)), name:Notification.Name("NewQuizCreated"), object: nil)
+        
+        
+        
         
     }
      
@@ -29,13 +49,6 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
     }
     
-    var QImg = ["JavaImg", "PythonImg", "SwiftImg"]
-    var QIcon = ["Java", "Python", "Swift"]
-    var QLabel = ["Jave Quiz", "Python Quiz", "Swift Quiz"]
-    var QDes = ["Select Java Quiz", "Select Python Quiz", "Select Swift Quiz"]
-    
-    
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         
         return 1
@@ -43,20 +56,23 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return QImg.count
+        return categories.count
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        
+        var index : Int
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! QuizCollectionViewCell
-
+        let categoryName = categories[indexPath.row].name
+        if (QIcon.contains(categoryName)) {
+            index = QIcon.firstIndex(of: categoryName)
+        }
         
-        cell.QuizImg.image = UIImage(named: QImg[indexPath.row])
-        cell.QuizIcon.image = UIImage(named: QIcon[indexPath.row])
-        cell.QuizCt.text = QLabel[indexPath.row]
-        cell.QuizDp.text = QDes[indexPath.row]
+        cell.QuizImg.image = UIImage(named: QImg[index])
+        cell.QuizIcon.image = UIImage(named: QIcon[index])
+        cell.QuizCt.text = QLabel[index]
+        cell.QuizDp.text = QDes[index]
        
         return cell
         
@@ -67,8 +83,18 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return CGSize(width: 200, height: 400)
     }
 
-    
+    @objc func update(_ notif: Notification){
+        categories = DBHelper.inst.getAllCategories()
+        let msg = notif.object as? String
+        for category in categories {
+            if (category.name == msg) {
+                categoryCreationData.updateValue(true, forKey: category.name)
+            }
+        }
+        newQuizNotificationLabel.isHidden = false
+    }
     
   
 
 }
+
