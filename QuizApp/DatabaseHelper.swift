@@ -16,6 +16,7 @@ class DatabaseHelper {
     
     func saveNewUser(object : [String : String]) {
         let user = NSEntityDescription.insertNewObject(forEntityName: "Users", into: context!) as! Users
+        //let score = NSEntityDescription.insertNewObject(forEntityName: "Scores", into: context!) as! Scores
         user.username = object["username"]
         user.password = object["password"]
         user.ranking = 0
@@ -44,8 +45,6 @@ class DatabaseHelper {
         catch{
             print("Data not saved")
         }
-        //print(listOfChoices)
-        //print(listOfBool)
         category.name = SetQuizPropertiesViewController.categoryName
         category.totalQuestions = SetQuizPropertiesViewController.numOfQuestionsOnNewQuiz!
         questions.questionText = question
@@ -57,6 +56,36 @@ class DatabaseHelper {
         }
         catch {
             print("Saving Failed")
+        }
+    }
+    
+    func saveQuizScore(username: String, countOfCorrectAnswers: Int64, countOfQuestions: Int64) {
+        var user = Users()
+        let scores = NSEntityDescription.insertNewObject(forEntityName: "Scores", into: context!) as! Scores
+        scores.correctAnswers = countOfCorrectAnswers
+        scores.totalQuestions = countOfQuestions
+        do{
+            try context?.save()
+            print("Score and Total Question Data saved")
+        }
+        catch{
+            print("Data not saved")
+        }
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        fetchReq.predicate = NSPredicate(format: "username == %@", username)
+        do {
+            let u = try context?.fetch(fetchReq)
+            if (u?.count != 0) {
+                user = u?.first as! Users
+                //user.userScores?.correctAnswers = countOfCorrectAnswers
+                //user.userScores?.totalQuestions = countOfQuestions
+                user.userScores = scores
+                try context?.save()
+                print("Data: Score \(countOfCorrectAnswers)/\(countOfQuestions) Updated")
+            }
+        }
+        catch {
+            print("Error")
         }
     }
     

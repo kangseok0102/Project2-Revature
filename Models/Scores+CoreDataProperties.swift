@@ -18,23 +18,6 @@ extension Scores {
 
     @NSManaged public var correctAnswers: Int64
     @NSManaged public var totalQuestions: Int64
-    @NSManaged public var scoreID: NSSet?
-
-}
-
-// MARK: Generated accessors for scoreID
-extension Scores {
-
-    @objc(addScoreIDObject:)
-    @NSManaged public func addToScoreID(_ value: Categories)
-
-    @objc(removeScoreIDObject:)
-    @NSManaged public func removeFromScoreID(_ value: Categories)
-
-    @objc(addScoreID:)
-    @NSManaged public func addToScoreID(_ values: NSSet)
-
-    @objc(removeScoreID:)
-    @NSManaged public func removeFromScoreID(_ values: NSSet)
+    @NSManaged public var scores: Categories?
 
 }

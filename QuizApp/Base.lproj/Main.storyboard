@@ -425,7 +425,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iim-5M-NMr">
-                                <rect key="frame" x="156" y="728" width="103" height="30"/>
+                                <rect key="frame" x="156" y="787" width="103" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="To quiz creator"/>
                                 <connections>
@@ -462,6 +462,27 @@
                                     <action selector="viewAllCategories:" destination="f5B-Ie-Lhp" eventType="touchUpInside" id="aHy-ZX-pqz"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuw-eS-1bJ">
+                                <rect key="frame" x="146" y="618" width="123" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vuw-lj-eb6">
+                                <rect key="frame" x="139" y="708" width="137" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Simulate User Login"/>
+                                <connections>
+                                    <action selector="simulateUserLoginButton:" destination="f5B-Ie-Lhp" eventType="touchUpInside" id="sDT-fX-Raw"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HC4-3P-MoB">
+                                <rect key="frame" x="137" y="666" width="140" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Znw-tK-3t9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -486,12 +507,13 @@
                     <connections>
                         <outlet property="categoryTextField" destination="gGV-i5-iEN" id="zO3-k8-94z"/>
                         <outlet property="passTextField" destination="C2d-br-T2f" id="css-Rr-Epp"/>
+                        <outlet property="userLoginTextField" destination="HC4-3P-MoB" id="wYH-dI-ko9"/>
                         <outlet property="userTextField" destination="dqu-8a-JN1" id="QhK-Uq-7Sn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HpE-uv-fve" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-775" y="1629"/>
+            <point key="canvasLocation" x="-775.36231884057975" y="1628.5714285714284"/>
         </scene>
         <!--Set Quiz Properties View Controller-->
         <scene sceneID="gH8-sU-Dqd">

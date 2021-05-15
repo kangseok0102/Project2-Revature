@@ -17,7 +17,7 @@
     <entity name="Scores" representedClassName="Scores" syncable="YES">
         <attribute name="correctAnswers" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="totalQuestions" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="scoreID" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Categories"/>
+        <relationship name="scores" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Categories"/>
     </entity>
     <entity name="Users" representedClassName="Users" syncable="YES">
         <attribute name="isBlocked" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
@@ -25,13 +25,13 @@
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="ranking" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="username" optional="YES" attributeType="String"/>
-        <relationship name="userID" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Scores"/>
+        <relationship name="userScores" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Scores"/>
     </entity>
     <elements>
         <element name="Categories" positionX="234.3828125" positionY="-42.703125" width="128" height="88"/>
         <element name="Choices" positionX="177.8984375" positionY="200.54296875" width="128" height="88"/>
         <element name="Questions" positionX="16.08203125" positionY="-118.88671875" width="128" height="59"/>
-        <element name="Scores" positionX="-149.58203125" positionY="100.890625" width="128" height="74"/>
-        <element name="Users" positionX="-213.16015625" positionY="-99.67578125" width="128" height="119"/>
+        <element name="Scores" positionX="-149.58203125" positionY="100.890625" width="128" height="88"/>
+        <element name="Users" positionX="-213.16015625" positionY="-99.67578125" width="128" height="133"/>
     </elements>
 </model>

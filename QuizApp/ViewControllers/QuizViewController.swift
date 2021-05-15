@@ -17,6 +17,8 @@ class QuizViewController: UIViewController, UITableViewDelegate, UITableViewData
     var quizQuestions = [Question]()
     var currentQuestion: Question?
     var currentCategory = TestingViewController.categoryName
+    var currentPoints: Int64 = 0
+    var totalCountOfQuestions: Int64 = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +26,12 @@ class QuizViewController: UIViewController, UITableViewDelegate, UITableViewData
         answerTableView.delegate = self
         answerTableView.dataSource = self
         setupQuestions()
+        getTotalCountOfQuestions()
         configureUI(question: quizQuestions.first!)
+    }
+    
+    func getTotalCountOfQuestions() {
+        totalCountOfQuestions = Int64(quizQuestions.count)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -42,14 +49,33 @@ class QuizViewController: UIViewController, UITableViewDelegate, UITableViewData
         guard let question = currentQuestion else {
             return
         }
+        let answer = question.choice[indexPath.row]
         if let index = quizQuestions.firstIndex(where: { $0.text == question.text }) {
             if index < (quizQuestions.count - 1) {
-                let selectedItem = indexPath.row
-                //currentPoints = getTotal(value: selectedItem)
+                checkAnswer(answer: answer, question: question)
                 let nextQuestion = quizQuestions[index + 1]
                 configureUI(question: nextQuestion)
                 answerTableView.reloadData()
             }
+            else {
+                print("INSIDE ELSE BLOCK")
+                checkAnswer(answer: answer, question: question)
+                print("Username: \(TestingViewController.username)")
+                print("Current Points: \(currentPoints)")
+                print("Total Points: \(totalCountOfQuestions)")
+                DatabaseHelper.inst.saveQuizScore(username: TestingViewController.username, countOfCorrectAnswers: currentPoints, countOfQuestions: totalCountOfQuestions)
+                print("I SHOULD HAVE SAVED THE SCORES")
+                let sBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let testPage = sBoard.instantiateViewController(identifier: "TestingView") as! TestingViewController
+                present(testPage, animated: true, completion: nil)
+                print("Quiz Finished, going back to Testing Screen")
+            }
+        }
+    }
+    
+    func checkAnswer(answer: Choice, question: Question) {
+        if question.choice.contains(where: { $0.text == answer.text }) && answer.isCorrect {
+            currentPoints += 1
         }
     }
     

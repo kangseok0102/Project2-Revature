@@ -12,7 +12,9 @@ class TestingViewController: UIViewController {
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
     @IBOutlet weak var categoryTextField: UITextField!
+    @IBOutlet weak var userLoginTextField: UITextField!
     static var categoryName: String = ""
+    static var username: String = ""
     let tvc = TestingViewController.self
     
     override func viewDidLoad() {
@@ -29,7 +31,7 @@ class TestingViewController: UIViewController {
     @IBAction func viewAllButton(_ sender: Any) {
         let data = DatabaseHelper.inst.fetchAllUserData()
         for c in data {
-            print("Username: \(c.username), Password: \(c.password), Subscribed: \(c.isSubscribed), Blocked: \(c.isBlocked), Ranking: \(c.ranking)")
+            print("Username: \(c.username), Password: \(c.password), Subscribed: \(c.isSubscribed), Blocked: \(c.isBlocked), Ranking: \(c.ranking), Correct Score: \(c.userScores?.correctAnswers), Total Score: \(c.userScores?.totalQuestions)")
         }
     }
     
@@ -47,16 +49,13 @@ class TestingViewController: UIViewController {
         let category = DatabaseHelper.inst.fetchAllCategoriesData()
         for c in category {
             print("Category: \(c.name), Question: \(c.categories?.questionText!) Choices: \(c.categories?.choices?.choiceText!), Bool Values: \(c.categories?.choices?.isCorrect!)")
-            //print(type(of: q.questionText))
-            //print(type(of: q.choices?.choiceText![0]))
-            //print(type(of: q.choices?.isCorrect![0]))
-            
         }
     }
     
     @IBAction func viewAllCategories(_ sender: Any) {
         let category = DatabaseHelper.inst.fetchAllCategoriesData()
         for c in category {
+            print(type(of: c))
             print("Category Name: \(c.name)")
         }
     }
@@ -74,6 +73,12 @@ class TestingViewController: UIViewController {
             }
         }
         print("Error, no category name exists")
+    }
+    
+    
+    @IBAction func simulateUserLoginButton(_ sender: Any) {
+        tvc.username = userLoginTextField.text!
+        print("User Saved, \(tvc.username)")
     }
     
 }
