@@ -14,26 +14,35 @@ class QuizPageViewController: UIViewController {
     
     @IBAction func choice1(_ sender: Any) {
         
-        // DBHelper.inst.FUNCTIONNAME(QUESTIONNUMBER.ANSWER : CHOICE1)
+        // choice1.text = DBHelper.inst.FUNCTIONNAME(QUESTIONNUMBER.ANSWER : CHOICE1)
         // if last question{instantiate different VC} else{
         // load next question}
         // question.text = DBHelper.inst.Questionnumber + 1
+        // if question.choices.isCorrect = true {
+       //     user.score ++
+    //  }
     }
         
     @IBAction func choice2(_ sender: Any) {
         
-        // DBHelper.inst.FUNCTIONNAME(QUESTIONNUMBER.ANSWER : CHOICE2)
+        // choice2.text = DBHelper.inst.FUNCTIONNAME(QUESTIONNUMBER.ANSWER : CHOICE2)
         // if last question{instantiate different VC} else{
         // load next question}
         // question.text = DBHelper.inst.Questionnumber + 1
+        // if question.choices.isCorrect = true {
+       //     user.score ++
+    //  }
     }
     
     @IBAction func choice3(_ sender: Any) {
         
-        // DBHelper.inst.FUNCTIONNAME(QUESTIONNUMBER.ANSWER : CHOICE3)
+        // choice3.text = DBHelper.inst.FUNCTIONNAME(QUESTIONNUMBER.ANSWER : CHOICE3)
         // if last question{instantiate different VC} else{
         // load next question}
         // question.text = DBHelper.inst.Questionnumber + 1
+        // if question.choices.isCorrect = true {
+       //     user.score ++
+    //  }
     }
     
     
@@ -51,7 +60,10 @@ class QuizPageViewController: UIViewController {
         print("You are out of time")
         view.backgroundColor = UIColor.red
         // submit or otherwise end quiz
-        // instantiate different VC
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
+            let vc = storyboard?.instantiateViewController(identifier: "menu") as! MenuViewController
+                    navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }

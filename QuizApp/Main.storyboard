@@ -183,10 +183,10 @@
             </objects>
             <point key="canvasLocation" x="1740.5797101449277" y="66.964285714285708"/>
         </scene>
-        <!--Menu View Controller-->
+        <!--menu-->
         <scene sceneID="EoF-9o-sYu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="BQq-F3-tHu" customClass="MenuViewController" customModule="QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="menu" modalPresentationStyle="fullScreen" id="BQq-F3-tHu" customClass="MenuViewController" customModule="QuizApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rTV-CJ-AVq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
