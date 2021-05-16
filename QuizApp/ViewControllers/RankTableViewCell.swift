@@ -12,6 +12,8 @@ class RankTableViewCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var rankingLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,5 +24,5 @@ class RankTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }

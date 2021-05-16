@@ -14,7 +14,8 @@ class RankingTableViewController: UITableViewController {
     
     var rankedUsersByCategory : [String : [User]] = [:]
 
-    
+    @IBOutlet weak var message: UILabel!
+     
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -53,7 +54,20 @@ class RankingTableViewController: UITableViewController {
         cell.usernameLabel.text = rankedUsersByCategory[categoryName][indexPath.row].username
         cell.scoreLabel.text = rankedUsersByCategory[categoryName][indexPath.row].avgScores[categoryName]
         
-        //cell.rankingLabel.text =
+        switch cell.rankingLabel.text {
+        case "1":
+            message.text = "Congratulations!  You earned a 30 day subscription!"
+            print("get 30 days free")
+        case "2":
+            message.text = "Congratulations!  You earned a 20 day subscription!"
+            print("get 20 days free")
+        case "3":
+            message.text = "Congratulations!  You earned a 10 day subscription!"
+            print("get 10 days free")
+        default:
+            print("")
+        }
+
 
         return cell
     }
