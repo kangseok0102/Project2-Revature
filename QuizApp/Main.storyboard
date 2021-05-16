@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fig-OQ-vup">
-=======
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="f5B-Ie-Lhp">
->>>>>>> edward
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -363,6 +359,11 @@
                             <constraint firstItem="34V-bg-OhI" firstAttribute="leading" secondItem="3rM-a7-Ucw" secondAttribute="leading" constant="20" id="xP8-fJ-1Yt"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="categoryName" destination="nTu-bM-fYH" id="d64-i2-mwR"/>
+                        <outlet property="detail" destination="BAb-MQ-CFc" id="Qm5-rZ-SW5"/>
+                        <outlet property="newQuizNotificationLabel" destination="BAb-MQ-CFc" id="LGP-ba-w1p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gja-4i-zmU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1065,7 +1066,7 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="listChoice" id="3Qg-kV-Jpm">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3Qg-kV-Jpm" id="XNO-sh-m7H">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -1244,7 +1245,6 @@
         <segue reference="2xU-Cn-wPc"/>
     </inferredMetricsTieBreakers>
     <resources>
-<<<<<<< HEAD
         <image name="Facebook" width="50" height="50"/>
         <image name="ForgotPW" width="626" height="626"/>
         <image name="LoginImg" width="626" height="626"/>
@@ -1254,14 +1254,9 @@
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-=======
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
->>>>>>> edward
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

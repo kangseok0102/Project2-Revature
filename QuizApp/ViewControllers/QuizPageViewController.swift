@@ -37,20 +37,20 @@ class QuizPageViewController: UIViewController {
     }
     
     
-    var timer = Timer!
+    var timer = Timer()
+    let alertTimer = UIAlertController(title: "Out of Time", message: "You are out of time!", preferredStyle: .alert)
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        alertTimer.addAction(UIAlertAction(title: "Out Of Time", style: .default, handler: nil))
         timer = Timer.scheduledTimer(timeInterval: 1800, target: self, selector: #selector(quizEnds), userInfo: nil, repeats: false)
 
     }
     
     @objc func quizEnds(){
-        let alertTimer = UIAlertController(title: "Out of Time", message: "You have run out of time.", preferredStyle: .alert)
-        alertTimer.addAction(UIAlertAction(title: "Out Of Time", style: .default, handler: nil))
         print("You are out of time")
-        view.backgroundColor = UIColor.redColor()
-        // submit quiz
+        view.backgroundColor = UIColor.red
+        // submit or otherwise end quiz
         // instantiate different VC
     }
     

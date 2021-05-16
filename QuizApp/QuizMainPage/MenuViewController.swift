@@ -10,6 +10,7 @@ import SideMenu
 
 class MenuViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    @IBOutlet weak var newQuizNotificationLabel: UILabel!
     
     var categories : [Category] = []
     var categoryCreationData : [String : Bool] = [:]
@@ -64,7 +65,7 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         var index : Int
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! QuizCollectionViewCell
-        let categoryName = categories[indexPath.row].name
+        let categoryName = categories[indexPath.row].category
         if (QIcon.contains(categoryName)) {
             index = QIcon.firstIndex(of: categoryName)
         }
@@ -84,7 +85,7 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
 
     @objc func update(_ notif: Notification){
-        categories = DBHelper.inst.getAllCategories()
+        categories = DatabaseHelper.inst.fetchAllCategoriesData()
         let msg = notif.object as? String
         for category in categories {
             if (category.name == msg) {
