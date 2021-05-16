@@ -13,6 +13,10 @@ class RankingTableViewController: UITableViewController {
     var categories : [Category] = []
     
     var rankedUsersByCategory : [String : [User]] = [:]
+    
+    var thirtyDays = 30 * 86400
+    var twentyDays = 20 * 86400
+    var tenDays = 10 * 86400
 
     @IBOutlet weak var message: UILabel!
      
@@ -54,19 +58,31 @@ class RankingTableViewController: UITableViewController {
         cell.usernameLabel.text = rankedUsersByCategory[categoryName][indexPath.row].username
         cell.scoreLabel.text = rankedUsersByCategory[categoryName][indexPath.row].avgScores[categoryName]
         
-//        switch cell.rankingLabel.text {
-//        case "1":
-//            message.text = "Congratulations!  You earned a 30 day subscription!"
-//            print("get 30 days free")
-//        case "2":
-//            message.text = "Congratulations!  You earned a 20 day subscription!"
-//            print("get 20 days free")
-//        case "3":
-//            message.text = "Congratulations!  You earned a 10 day subscription!"
-//            print("get 10 days free")
-//        default:
-//            print("")
-//        }
+        switch cell.rankingLabel.text {
+        case "1":
+            message.text = "Congratulations!  You earned a 30 day subscription!"
+            print("get 30 days free")
+            user.isSubscribed = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + thirtyDays){
+                user.isSubscribed = false
+            }
+        case "2":
+            message.text = "Congratulations!  You earned a 20 day subscription!"
+            print("get 20 days free")
+            user.isSubscribed = true
+                DispatchQueue.main.asyncAfter(deadline: .now() + twentyDays){
+                    user.isSubscribed = false
+                }
+       case "3":
+            message.text = "Congratulations!  You earned a 10 day subscription!"
+            print("get 10 days free")
+            user.isSubscribed = true
+            DispatchQueue.main.asyncAfter(deadline: .now() + tenDays){
+                user.isSubscribed = false
+            }
+        default:
+           print("")
+    }
 
 
         return cell

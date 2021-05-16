@@ -39,7 +39,7 @@ class LogInViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let forgotPassVC = storyboard.instantiateViewController(identifier: "forgotPass")
         forgotPassVC.modalPresentationStyle = .fullScreen
-        let user = DBHelper.inst.fetchUser(username: usernameField.text)
+        let user = DatabaseHelper.inst.fetchUserSpecifiedData(username: usernameField.text)
         if (user.username == usernameField.text) {
             self.present(forgotPassVC, animated: false)
         } else {
@@ -48,7 +48,7 @@ class LogInViewController: UIViewController {
     }
     
     func authenticate(username: String?, password: String?) -> Bool {
-        let user = DBHelper.inst.fetchUser(username: username)
+        let user = DatabaseHelper.inst.fetchUserSpecifiedData(username: username)
         if (user.username == username && user.password == password) {
                 return true
         }
