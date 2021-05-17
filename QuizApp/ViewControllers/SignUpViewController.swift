@@ -9,14 +9,7 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
-    @IBOutlet weak var usernameField: UITextField!
-    
-    @IBOutlet weak var passwordField: UITextField!
-    
-    @IBOutlet weak var repeatPasswordField: UITextField!
-    
-
-    @IBOutlet weak var EmailTxt: UITextField!
+    @IBOutlet weak var UsernameTxt: UITextField!
     @IBOutlet weak var PasswordTxt: UITextField!
     @IBOutlet weak var ConfirmTxt: UITextField!
     @IBOutlet weak var SignUpBttn: UIButton!
@@ -26,13 +19,13 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
 
         let emailImage = UIImage(named: "EmailIcon")
-        addLeftImageTo(txtField: EmailTxt, andImage: emailImage!)
+        addLeftImageTo(txtField: UsernameTxt, andImage: emailImage!)
         let PasswordImage = UIImage(named: "PasswordIcon")
         addLeftImageTo(txtField: PasswordTxt, andImage: PasswordImage!)
         let ConfirmImage = UIImage(named: "PasswordConfirmIcon")
         addLeftImageTo(txtField: ConfirmTxt, andImage: ConfirmImage!)
         
-        EmailTxt.TextBoxDesign()
+        UsernameTxt.TextBoxDesign()
         PasswordTxt.TextBoxDesign()
         ConfirmTxt.TextBoxDesign()
         SignUpBttn.BttnDesign()
@@ -50,7 +43,7 @@ class SignUpViewController: UIViewController {
     }
 
     @IBAction func signUpButton(_ sender: Any) {
-        let dictionary = ["username": usernameField.text, "password": passwordField.text]
+        let dictionary = ["username": UsernameTxt.text, "password": PasswordTxt.text]
         DatabaseHelper.inst.saveNewUser(object: dictionary as! [String : String])
         let vc = self.storyboard?.instantiateViewController(identifier: "login") as! LogInViewController
         self.navigationController?.pushViewController(vc, animated: true)

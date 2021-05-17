@@ -93,7 +93,7 @@ class LogInViewController: UIViewController {
         homeVC.modalPresentationStyle = .fullScreen
         let isValidated = authenticate(username: UsernameTxt.text, password: PasswordTxt.text)
         if (isValidated){
-            self.present(homeVC, animated: false)
+            self.present(homeVC, animated: true)
         } else {
             self.present(alertLogin, animated: true)
         }
@@ -104,14 +104,16 @@ class LogInViewController: UIViewController {
         forgotPassVC.modalPresentationStyle = .fullScreen
         let user = DatabaseHelper.inst.fetchUserSpecifiedData(username: UsernameTxt.text!)
         if (user.username == UsernameTxt.text) {
-            self.present(forgotPassVC, animated: false)
+            self.present(forgotPassVC, animated: true)
         } else {
             self.present(alertUsername, animated: true)
         }
     }
     
     func authenticate(username: String?, password: String?) -> Bool {
-        let user = DatabaseHelper.inst.fetchUserSpecifiedData(username: username!)
+        var user = Users()
+        user = DatabaseHelper.inst.fetchUserSpecifiedData(username: username!)
+        
         if (user.username == username && user.password == password) {
                 return true
         }

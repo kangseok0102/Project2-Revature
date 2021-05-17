@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xbF-5J-7an">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fig-OQ-vup">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -61,7 +61,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="toF-w0-Lej">
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="toF-w0-Lej">
                                         <rect key="frame" x="88" y="468" width="238" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -180,11 +180,11 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="EmailTxt" destination="LJp-z4-JzU" id="qCb-hn-9Rb"/>
                         <outlet property="FacebookBttn" destination="fDT-C2-J2y" id="IL9-Fs-oty"/>
                         <outlet property="ForgotBttn" destination="lB0-eW-dig" id="Gri-Fa-9tt"/>
                         <outlet property="LogInBttn" destination="QNt-lR-hKZ" id="5gY-GS-lsQ"/>
                         <outlet property="PasswordTxt" destination="toF-w0-Lej" id="ahi-79-I00"/>
+                        <outlet property="UsernameTxt" destination="LJp-z4-JzU" id="1ut-bT-WWb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EEO-Z0-WoI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -795,7 +795,7 @@
                                         <rect key="frame" x="8" y="8" width="358" height="231"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F1n-Ta-m6t">
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F1n-Ta-m6t">
                                         <rect key="frame" x="68" y="247" width="238" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -827,9 +827,9 @@
                     </view>
                     <connections>
                         <outlet property="ConfirmTxt" destination="2y9-0i-Llj" id="aCD-KZ-DSu"/>
-                        <outlet property="EmailTxt" destination="F1n-Ta-m6t" id="ZFQ-AN-9tC"/>
                         <outlet property="PasswordTxt" destination="vhv-dP-dSO" id="aOe-V0-kGd"/>
                         <outlet property="SignUpBttn" destination="Gve-ve-x1l" id="V2K-rT-FPj"/>
+                        <outlet property="UsernameTxt" destination="F1n-Ta-m6t" id="Gzy-Ju-m5X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahP-go-1uC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1568,7 +1568,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GxI-ZS-Y1F"/>
+        <segue reference="0dX-9n-6ab"/>
+        <segue reference="ygq-xc-O89"/>
+        <segue reference="QmM-iL-BFU"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AdminIcon" width="50" height="50"/>
