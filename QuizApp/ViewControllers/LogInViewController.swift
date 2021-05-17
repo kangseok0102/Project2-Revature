@@ -33,7 +33,8 @@ class LogInViewController: UIViewController {
         LogInBttn.BttnDesign()
         FacebookBttn.BttnDesign()
         ForgotBttn.BttnDesign()
-        
+        alertUsername.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alertLogin.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
     }
     
@@ -90,12 +91,7 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     let alertUsername = UIAlertController(title: "Invalid Username", message: "We're sorry, we can't find that username, please try again", preferredStyle: .alert)
     let alertLogin = UIAlertController(title: "Invalid Login Credentials", message: "Invalid login credentials, please try again", preferredStyle: .alert)
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        alertUsername.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        alertLogin.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-    }
+
     
     @IBAction func login(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
