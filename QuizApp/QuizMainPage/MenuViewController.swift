@@ -14,12 +14,6 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var newQuizNotificationLabel: UILabel!
     var categories : [Categories] = DatabaseHelper.inst.fetchAllCategoriesData()
     var categoryCreationData : [String : Bool] = [:]
-    //Make these variables dynamic
-    var QImg = ["JavaImg", "PythonImg", "SwiftImg"] //No attribute in Category
-    var QIcon = ["Java", "Python", "Swift"] //No attribute in Category
-    var QLabel = ["Java Quiz", "Python Quiz", "Swift Quiz"] //Has attribute in Category
-    var QDes = ["Select Java Quiz", "Select Python Quiz", "Select Swift Quiz"] //Has attribute in Category
-    //
 
     var menu: SideMenuNavigationController?
     
@@ -37,7 +31,7 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
             categoryCreationData.updateValue(false, forKey: QIcon[i])
         }
         newQuizNotificationLabel.isHidden = true
-        menu = SideMenuNavigationController(rootViewController: MenuTableViewController())
+        menu = SideMenuNavigationController(rootViewController: UserMenuTableViewController())
         menu?.leftSide = true
         menu?.setNavigationBarHidden(true, animated: false)
         SideMenuManager.default.leftMenuNavigationController = menu

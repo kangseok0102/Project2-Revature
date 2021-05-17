@@ -11,24 +11,25 @@ import FBSDKLoginKit
 class LogInViewController: UIViewController {
 
     
-    @IBOutlet weak var EmailTxt: UITextField!
+    @IBOutlet weak var UsernameTxt: UITextField!
     @IBOutlet weak var PasswordTxt: UITextField!
     @IBOutlet weak var LogInBttn: UIButton!
     @IBOutlet weak var FacebookBttn: UIButton!
     @IBOutlet weak var ForgotBttn: UIButton!
     
-    
+    let alertUsername = UIAlertController(title: "Invalid Username", message: "We're sorry, we can't find that username, please try again", preferredStyle: .alert)
+    let alertLogin = UIAlertController(title: "Invalid Login Credentials", message: "Invalid login credentials, please try again", preferredStyle: .alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ApplicationDelegate.initializeSDK(nil)
         let emailImage = UIImage(named: "EmailIcon")
-        addLeftImageTo(txtField: EmailTxt, andImage: emailImage!)
+        addLeftImageTo(txtField: UsernameTxt, andImage: emailImage!)
         let PasswordImage = UIImage(named: "PasswordIcon")
         addLeftImageTo(txtField: PasswordTxt, andImage: PasswordImage!)
         
-        EmailTxt.TextBoxDesign()
+        UsernameTxt.TextBoxDesign()
         PasswordTxt.TextBoxDesign()
         LogInBttn.BttnDesign()
         FacebookBttn.BttnDesign()
@@ -84,20 +85,13 @@ class LogInViewController: UIViewController {
             self.present(vc, animated: true, completion: nil)
         }
     }
-    
-
-
-    @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
-    let alertUsername = UIAlertController(title: "Invalid Username", message: "We're sorry, we can't find that username, please try again", preferredStyle: .alert)
-    let alertLogin = UIAlertController(title: "Invalid Login Credentials", message: "Invalid login credentials, please try again", preferredStyle: .alert)
 
     
     @IBAction func login(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let homeVC = storyboard.instantiateViewController(identifier: "home")
+        let homeVC = storyboard.instantiateViewController(identifier: "QuizMainPage")
         homeVC.modalPresentationStyle = .fullScreen
-        let isValidated = authenticate(username: usernameField.text, password: passwordField.text)
+        let isValidated = authenticate(username: UsernameTxt.text, password: PasswordTxt.text)
         if (isValidated){
             self.present(homeVC, animated: false)
         } else {
@@ -108,8 +102,8 @@ class LogInViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let forgotPassVC = storyboard.instantiateViewController(identifier: "forgotPass")
         forgotPassVC.modalPresentationStyle = .fullScreen
-        let user = DatabaseHelper.inst.fetchUserSpecifiedData(username: usernameField.text!)
-        if (user.username == usernameField.text) {
+        let user = DatabaseHelper.inst.fetchUserSpecifiedData(username: UsernameTxt.text!)
+        if (user.username == UsernameTxt.text) {
             self.present(forgotPassVC, animated: false)
         } else {
             self.present(alertUsername, animated: true)
