@@ -90,12 +90,13 @@ class LogInViewController: UIViewController {
     @IBAction func login(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let homeVC = storyboard.instantiateViewController(identifier: "QuizMainPage")
-        homeVC.modalPresentationStyle = .fullScreen
+        
         let isValidated = authenticate(username: UsernameTxt.text, password: PasswordTxt.text)
         if (isValidated){
-            self.present(homeVC, animated: true)
+            present(homeVC, animated: true)
+            homeVC.modalPresentationStyle = .fullScreen
         } else {
-            self.present(alertLogin, animated: true)
+            present(alertLogin, animated: true)
         }
     }
     @IBAction func forgotPass(_ sender: Any) {
@@ -104,9 +105,10 @@ class LogInViewController: UIViewController {
         forgotPassVC.modalPresentationStyle = .fullScreen
         let user = DatabaseHelper.inst.fetchUserSpecifiedData(username: UsernameTxt.text!)
         if (user.username == UsernameTxt.text) {
-            self.present(forgotPassVC, animated: true)
+            present(forgotPassVC, animated: true)
+            forgotPassVC.modalPresentationStyle = .fullScreen
         } else {
-            self.present(alertUsername, animated: true)
+            present(alertUsername, animated: true)
         }
     }
     
@@ -121,4 +123,3 @@ class LogInViewController: UIViewController {
     }
 
 }
-

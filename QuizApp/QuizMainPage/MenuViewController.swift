@@ -11,7 +11,7 @@ import SideMenu
 class MenuViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
 
-    @IBOutlet weak var newQuizNotificationLabel: UILabel!
+    //@IBOutlet weak var newQuizNotificationLabel: UILabel!
     var categories : [Categories] = DatabaseHelper.inst.fetchAllCategoriesData()
     var categoryCreationData : [String : Bool] = [:]
 
@@ -27,10 +27,10 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func setupView() {
-        for i in 0 ..< QIcon.count {
-            categoryCreationData.updateValue(false, forKey: QIcon[i])
+        for i in 0 ..< QuizIcon.count {
+            categoryCreationData.updateValue(false, forKey: QuizIcon[i])
         }
-        newQuizNotificationLabel.isHidden = true
+        //newQuizNotificationLabel.isHidden = true
         menu = SideMenuNavigationController(rootViewController: UserMenuTableViewController())
         menu?.leftSide = true
         menu?.setNavigationBarHidden(true, animated: false)
@@ -44,10 +44,10 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         present(menu!, animated: true)
     }
     
-    var QImg = ["JavaImg", "PythonImg", "SwiftImg", "SQLImg"]
-    var QIcon = ["Java", "Python", "Swift", "Sql"]
-    var QLabel = ["Jave Quiz", "Python Quiz", "Swift Quiz", "SQL Quiz"]
-    var QDes = ["You can test your Java skills with this quiz", "You can test your Python skills with this quiz", "You can test your Swift skills with this quiz", "You can test your SQL skills with this quiz"]
+    var QuizImg = ["JavaImg", "PythonImg", "SwiftImg", "SQLImg"]
+    var QuizIcon = ["Java", "Python", "Swift", "Sql"]
+    var QuizCt = ["Jave Quiz", "Python Quiz", "Swift Quiz", "SQL Quiz"]
+    var QuizDp = ["You can test your Java skills with this quiz", "You can test your Python skills with this quiz", "You can test your Swift skills with this quiz", "You can test your SQL skills with this quiz"]
     
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -59,18 +59,18 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var index = QImg.count
+        var index = QuizImg.count
         var i = 0
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! QuizCollectionViewCell
         let categoryName = categories[indexPath.row].name
-        if (QIcon.contains(categoryName!)) {
-            index = QIcon.firstIndex(of: categoryName!)!
+        if (QuizIcon.contains(categoryName!)) {
+            index = QuizIcon.firstIndex(of: categoryName!)!
         }
         while i < index {
-            cell.QuizImg.image = UIImage(named: QImg[i])
-            cell.QuizIcon.image = UIImage(named: QIcon[i])
-            cell.QuizCt.text = QLabel[i]
-            cell.QuizDp.text = QDes[i]
+            cell.QuizImg.image = UIImage(named: QuizImg[i])
+            cell.QuizIcon.image = UIImage(named: QuizIcon[i])
+            cell.QuizCt.text = QuizCt[i]
+            cell.QuizDp.text = QuizDp[i]
             i += 1
         }
         return cell
@@ -89,7 +89,7 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 categoryCreationData.updateValue(true, forKey: category.name!)
             }
         }
-        newQuizNotificationLabel.isHidden = false
+        //newQuizNotificationLabel.isHidden = false
     }
 }
 

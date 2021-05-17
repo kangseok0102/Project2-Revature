@@ -42,17 +42,26 @@ class SignUpViewController: UIViewController {
         
     }
 
-    @IBAction func signUpButton(_ sender: Any) {
+    @IBAction func SignUpBttn(_ sender: Any) {
+        
         let dictionary = ["username": UsernameTxt.text, "password": PasswordTxt.text]
         DatabaseHelper.inst.saveNewUser(object: dictionary as! [String : String])
-        let vc = self.storyboard?.instantiateViewController(identifier: "login") as! LogInViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        let vc = storyboard?.instantiateViewController(identifier: "LogInPage") as! LogInViewController
+            present(vc, animated: true)
+            vc.modalPresentationStyle = .fullScreen
+   
+    
+        
     }
     
-    @IBAction func signInLink(_ sender: Any) {
-        let vc = self.storyboard?.instantiateViewController(identifier: "login") as! LogInViewController
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
 
+    @IBAction func SignInBttn(_ sender: Any) {
+        
+        let vc = storyboard?.instantiateViewController(identifier: "LogInPage") as! LogInViewController
+            present(vc, animated: true)
+            vc.modalPresentationStyle = .fullScreen
+ 
+        
+    }
 
 }

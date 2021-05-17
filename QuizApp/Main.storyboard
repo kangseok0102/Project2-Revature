@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fig-OQ-vup">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fig-OQ-vup">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -115,7 +115,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="login:" destination="Qso-08-9BO" eventType="touchUpInside" id="Zb7-cb-oLD"/>
-                                    <segue destination="BQq-F3-tHu" kind="presentation" id="rcY-71-lF1"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Not Registered yet?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3w8-Rh-13Q">
@@ -175,6 +174,14 @@
                                 <rect key="frame" x="94" y="652" width="41" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUU-Jx-aII">
+                                <rect key="frame" x="184" y="769" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="xbF-5J-7an" kind="show" id="M0I-TJ-Wi0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FVR-Ce-IZA"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -644,7 +651,7 @@
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="195" id="zQV-R3-Poj">
-                                                        <rect key="frame" x="0.0" y="24.5" width="398" height="195"/>
+                                                        <rect key="frame" x="0.0" y="28" width="398" height="195"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zQV-R3-Poj" id="OYw-Ua-5CW">
                                                             <rect key="frame" x="0.0" y="0.0" width="398" height="195"/>
@@ -749,7 +756,7 @@
                                             <color key="titleColor" red="0.17951798259999999" green="0.84070484909999998" blue="0.7287831132" alpha="0.8980392157" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Qso-08-9BO" kind="presentation" id="QmM-iL-BFU"/>
+                                            <action selector="SignInBttn:" destination="az6-K0-2St" eventType="touchUpInside" id="qB7-BM-RiA"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2y9-0i-Llj">
@@ -788,7 +795,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="Qso-08-9BO" kind="presentation" id="2xU-Cn-wPc"/>
+                                            <action selector="SignUpBttn:" destination="az6-K0-2St" eventType="touchUpInside" id="mA8-xt-ddS"/>
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="SignUpImg" translatesAutoresizingMaskIntoConstraints="NO" id="fZZ-mn-F0C">
@@ -1053,6 +1060,7 @@
                             <constraint firstItem="hXj-bh-Adq" firstAttribute="top" secondItem="JOC-Dp-K7a" secondAttribute="bottom" constant="54" id="wqh-xK-bCt"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="aqX-Cc-n1X"/>
                     <connections>
                         <outlet property="CreateQuizBttn" destination="hXj-bh-Adq" id="MDQ-R8-OUU"/>
                     </connections>
@@ -1273,7 +1281,7 @@
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="195" id="bgK-GU-GCR">
-                                                        <rect key="frame" x="0.0" y="24.5" width="398" height="195"/>
+                                                        <rect key="frame" x="0.0" y="28" width="398" height="195"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bgK-GU-GCR" id="EuQ-44-Bc5">
                                                             <rect key="frame" x="0.0" y="0.0" width="398" height="195"/>
@@ -1391,7 +1399,7 @@
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="59" id="dNj-vn-K21">
-                                                <rect key="frame" x="0.0" y="24.5" width="332" height="59"/>
+                                                <rect key="frame" x="0.0" y="28" width="332" height="59"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dNj-vn-K21" id="DHe-QF-ucg">
                                                     <rect key="frame" x="0.0" y="0.0" width="332" height="59"/>
@@ -1497,7 +1505,7 @@
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="586" id="qXI-cz-6MX">
-                                                <rect key="frame" x="0.0" y="24.5" width="332" height="586"/>
+                                                <rect key="frame" x="0.0" y="28" width="332" height="586"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qXI-cz-6MX" id="rdf-gJ-XX8">
                                                     <rect key="frame" x="0.0" y="0.0" width="332" height="586"/>
@@ -1568,9 +1576,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0dX-9n-6ab"/>
-        <segue reference="ygq-xc-O89"/>
-        <segue reference="QmM-iL-BFU"/>
+        <segue reference="M0I-TJ-Wi0"/>
+        <segue reference="dX1-2S-M5h"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AdminIcon" width="50" height="50"/>
