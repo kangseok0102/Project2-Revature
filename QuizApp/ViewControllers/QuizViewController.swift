@@ -19,6 +19,8 @@ class QuizViewController: UIViewController, UITableViewDelegate, UITableViewData
     var currentCategory = TestingViewController.categoryName
     var currentPoints: Int64 = 0
     var totalCountOfQuestions: Int64 = 0
+    var timer = Timer()
+    let alertTimer = UIAlertController(title: "Out of Time", message: "You are out of time!", preferredStyle: .alert)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,18 @@ class QuizViewController: UIViewController, UITableViewDelegate, UITableViewData
         setupQuestions()
         getTotalCountOfQuestions()
         configureUI(question: quizQuestions.first!)
+        alertTimer.addAction(UIAlertAction(title: "Out Of Time", style: .default, handler: nil))
+        timer = Timer.scheduledTimer(timeInterval: 1800, target: self, selector: #selector(quizEnds), userInfo: nil, repeats: false)
+    }
+    
+    @objc func quizEnds(){
+        print("You are out of time")
+        view.backgroundColor = UIColor.red
+        // submit & update score or otherwise end quiz
+        DispatchQueue.main.asyncAfter(deadline: .now() + Double(3.5)) {
+            let vc = self.storyboard?.instantiateViewController(identifier: "menu") as! MenuViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func getTotalCountOfQuestions() {

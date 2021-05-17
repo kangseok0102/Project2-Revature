@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Models/Users+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Models/Categories+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:QuizApp.xcodeproj">
    </FileRef>
    <FileRef
