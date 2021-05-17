@@ -15,5 +15,15 @@ class QuizCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var QuizDp: UILabel!
     
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        layer.shadowRadius = 10
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize(width: 5, height: 10)
+        
+        self.clipsToBounds = false
+    }
+    
     
 }

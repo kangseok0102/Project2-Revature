@@ -10,18 +10,20 @@ import SideMenu
 
 class MenuViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+   
     
     var menu: SideMenuNavigationController?
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        menu = SideMenuNavigationController(rootViewController: MenuTableViewController())
+        menu = SideMenuNavigationController(rootViewController: UserMenuTableViewController())
         menu?.leftSide = true
         menu?.setNavigationBarHidden(true, animated: false)
         SideMenuManager.default.leftMenuNavigationController = menu
         SideMenuManager.default.addPanGestureToPresent(toView: view)
         
     }
+    
      
     @IBAction func didTap(_ sender: Any) {
         
@@ -29,10 +31,11 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
     }
     
-    var QImg = ["JavaImg", "PythonImg", "SwiftImg"]
-    var QIcon = ["Java", "Python", "Swift"]
-    var QLabel = ["Jave Quiz", "Python Quiz", "Swift Quiz"]
-    var QDes = ["Select Java Quiz", "Select Python Quiz", "Select Swift Quiz"]
+    
+    var QImg = ["JavaImg", "PythonImg", "SwiftImg", "SQLImg"]
+    var QIcon = ["Java", "Python", "Swift", "Sql"]
+    var QLabel = ["Jave Quiz", "Python Quiz", "Swift Quiz", "SQL Quiz"]
+    var QDes = ["You can test your Java skills with this quiz", "You can test your Python skills with this quiz", "You can test your Swift skills with this quiz", "You can test your SQL skills with this quiz"]
     
     
     
@@ -67,8 +70,6 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return CGSize(width: 200, height: 400)
     }
 
-    
-    
-  
-
 }
+
+

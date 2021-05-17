@@ -4,7 +4,10 @@
 target 'QuizApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
+  
   pod 'SideMenu'
+  pod 'FBSDKLoginKit'
+  
   # Pods for QuizApp
 
   target 'QuizAppTests' do
