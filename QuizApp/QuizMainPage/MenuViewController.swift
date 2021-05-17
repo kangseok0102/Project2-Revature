@@ -87,12 +87,7 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         return CGSize(width: 200, height: 400)
     }
 
-
-}
-
-
-
-    @objc func update(_ notif: Notification){
+    @objc func update(_ notif: Notification) {
         categories = DatabaseHelper.inst.fetchAllCategoriesData()
         let msg = notif.object as? String
         for category in categories {
