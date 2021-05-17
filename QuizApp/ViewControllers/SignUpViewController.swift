@@ -8,6 +8,13 @@
 import UIKit
 
 class SignUpViewController: UIViewController {
+    
+    @IBOutlet weak var usernameField: UITextField!
+    
+    @IBOutlet weak var passwordField: UITextField!
+    
+    @IBOutlet weak var repeatPasswordField: UITextField!
+    
 
     @IBOutlet weak var EmailTxt: UITextField!
     @IBOutlet weak var PasswordTxt: UITextField!
@@ -32,8 +39,7 @@ class SignUpViewController: UIViewController {
         
  
     }
-    
-    
+
     private func addLeftImageTo(txtField: UITextField, andImage img:UIImage){
         
         let leftImageView = UIImageView(frame: CGRect(x:0.0, y:0.0, width: img.size.width, height: img.size.height))
@@ -42,6 +48,18 @@ class SignUpViewController: UIViewController {
         txtField.leftViewMode = .always
         
     }
+
+    @IBAction func signUpButton(_ sender: Any) {
+        let dictionary = ["username": usernameField.text, "password": passwordField.text]
+        DatabaseHelper.inst.saveNewUser(object: dictionary as! [String : String])
+        let vc = self.storyboard?.instantiateViewController(identifier: "login") as! LogInViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
+    @IBAction func signInLink(_ sender: Any) {
+        let vc = self.storyboard?.instantiateViewController(identifier: "login") as! LogInViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
 
 }
