@@ -59,10 +59,10 @@ class QuizPageViewController: UIViewController {
     @objc func quizEnds(){
         print("You are out of time")
         view.backgroundColor = UIColor.red
-        // submit or otherwise end quiz
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-            let vc = storyboard?.instantiateViewController(identifier: "menu") as! MenuViewController
-                    navigationController?.pushViewController(vc, animated: true)
+        // submit & update score or otherwise end quiz
+        DispatchQueue.main.asyncAfter(deadline: .now() + Double(3.5)) {
+            let vc = self.storyboard?.instantiateViewController(identifier: "menu") as! MenuViewController
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

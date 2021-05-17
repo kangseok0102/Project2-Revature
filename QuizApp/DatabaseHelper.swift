@@ -186,4 +186,23 @@ class DatabaseHelper {
         return arrayOfBlockedUsers
     }
     
+    func updateSubStatus(username: String, subStatus: Bool) {
+            var user = Users()
+            let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+            fetchReq.predicate = NSPredicate(format: "username == %@", username)
+
+            do {
+                let u = try context?.fetch(fetchReq)
+                if (u?.count != 0) {
+                    user = u?.first as! Users
+                    user.isSubscribed = !subStatus
+                    try context?.save()
+                    print("User Subscribed status changed")
+                }
+            }
+            catch {
+                print("Error")
+            }
+        }
+    
 }

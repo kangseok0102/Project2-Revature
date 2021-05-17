@@ -2,7 +2,7 @@
 //  Categories+CoreDataProperties.swift
 //  
 //
-//  Created by Edward Guilllermo on 5/14/21.
+//  Created by Edward Guilllermo on 5/16/21.
 //
 //
 
@@ -18,6 +18,7 @@ extension Categories {
 
     @NSManaged public var name: String?
     @NSManaged public var totalQuestions: Int64
+    @NSManaged public var categoryDescription: String?
     @NSManaged public var categories: Questions?
 
 }

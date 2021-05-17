@@ -2,7 +2,7 @@
 //  Users+CoreDataProperties.swift
 //  
 //
-//  Created by Edward Guilllermo on 5/14/21.
+//  Created by Edward Guilllermo on 5/16/21.
 //
 //
 
@@ -21,6 +21,8 @@ extension Users {
     @NSManaged public var password: String?
     @NSManaged public var ranking: Int64
     @NSManaged public var username: String?
+    @NSManaged public var feedback: String?
+    @NSManaged public var dateCreated: Date?
     @NSManaged public var userScores: Scores?
 
 }
