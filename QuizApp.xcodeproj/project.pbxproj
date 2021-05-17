@@ -41,9 +41,6 @@
 		5CC45241264D7D340036FA6E /* QuizCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC45240264D7D340036FA6E /* QuizCollectionViewCell.swift */; };
 		5CC45242264D7D340036FA6E /* QuizCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC45240264D7D340036FA6E /* QuizCollectionViewCell.swift */; };
 		5CC45243264D7D340036FA6E /* QuizCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC45240264D7D340036FA6E /* QuizCollectionViewCell.swift */; };
-		5CC45259264D91680036FA6E /* QuizPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC45258264D91670036FA6E /* QuizPageViewController.swift */; };
-		5CC4525A264D91680036FA6E /* QuizPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC45258264D91670036FA6E /* QuizPageViewController.swift */; };
-		5CC4525B264D91680036FA6E /* QuizPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC45258264D91670036FA6E /* QuizPageViewController.swift */; };
 		5CC45290264F0D860036FA6E /* MenuViewController_Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC4528F264F0D850036FA6E /* MenuViewController_Admin.swift */; };
 		5CC45291264F0D870036FA6E /* MenuViewController_Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC4528F264F0D850036FA6E /* MenuViewController_Admin.swift */; };
 		5CC45292264F0D870036FA6E /* MenuViewController_Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC4528F264F0D850036FA6E /* MenuViewController_Admin.swift */; };
@@ -60,6 +57,24 @@
 		5CC452B72650B02B0036FA6E /* CreateQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC452B52650B02B0036FA6E /* CreateQuizViewController.swift */; };
 		5CC452B82650B02B0036FA6E /* CreateQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC452B52650B02B0036FA6E /* CreateQuizViewController.swift */; };
 		5CC452C52650DFEB0036FA6E /* TextStylingFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC452C42650DFEB0036FA6E /* TextStylingFunction.swift */; };
+		5CC453412652C5360036FA6E /* QuizPageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC453402652C5360036FA6E /* QuizPageTableViewController.swift */; };
+		5CC453422652C5360036FA6E /* QuizPageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC453402652C5360036FA6E /* QuizPageTableViewController.swift */; };
+		5CC453432652C5360036FA6E /* QuizPageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC453402652C5360036FA6E /* QuizPageTableViewController.swift */; };
+		5CC4534B2652C5610036FA6E /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC4534A2652C5610036FA6E /* RankingTableViewCell.swift */; };
+		5CC4534C2652C5610036FA6E /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC4534A2652C5610036FA6E /* RankingTableViewCell.swift */; };
+		5CC4534D2652C5610036FA6E /* RankingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC4534A2652C5610036FA6E /* RankingTableViewCell.swift */; };
+		5CC453522652C57F0036FA6E /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC453512652C57F0036FA6E /* UserListTableViewCell.swift */; };
+		5CC453532652C57F0036FA6E /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC453512652C57F0036FA6E /* UserListTableViewCell.swift */; };
+		5CC453542652C57F0036FA6E /* UserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC453512652C57F0036FA6E /* UserListTableViewCell.swift */; };
+		5CC453592652C59E0036FA6E /* QuizPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC453582652C59E0036FA6E /* QuizPageTableViewCell.swift */; };
+		5CC4535A2652C59E0036FA6E /* QuizPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC453582652C59E0036FA6E /* QuizPageTableViewCell.swift */; };
+		5CC4535B2652C59E0036FA6E /* QuizPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC453582652C59E0036FA6E /* QuizPageTableViewCell.swift */; };
+		5CC453602652CECB0036FA6E /* UserFeedbackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC4535F2652CECA0036FA6E /* UserFeedbackTableViewController.swift */; };
+		5CC453612652CECB0036FA6E /* UserFeedbackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC4535F2652CECA0036FA6E /* UserFeedbackTableViewController.swift */; };
+		5CC453622652CECB0036FA6E /* UserFeedbackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC4535F2652CECA0036FA6E /* UserFeedbackTableViewController.swift */; };
+		5CC453672652CEF20036FA6E /* UserFeedbackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC453662652CEF10036FA6E /* UserFeedbackTableViewCell.swift */; };
+		5CC453682652CEF20036FA6E /* UserFeedbackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC453662652CEF10036FA6E /* UserFeedbackTableViewCell.swift */; };
+		5CC453692652CEF20036FA6E /* UserFeedbackTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CC453662652CEF10036FA6E /* UserFeedbackTableViewCell.swift */; };
 		ABDA3E4C9AE32CD033C688EE /* Pods_QuizApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 400E120AD4A4A56C468329F1 /* Pods_QuizApp.framework */; };
 		E97B950028D19B085DAB2DB8 /* Pods_QuizAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBF4FCEDCB01F065E21B0853 /* Pods_QuizAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -111,13 +126,18 @@
 		5C5716F6264B9EB00067EA6F /* RankingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTableViewController.swift; sourceTree = "<group>"; };
 		5C571704264B9EDA0067EA6F /* FeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		5CC45240264D7D340036FA6E /* QuizCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizCollectionViewCell.swift; sourceTree = "<group>"; };
-		5CC45258264D91670036FA6E /* QuizPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPageViewController.swift; sourceTree = "<group>"; };
 		5CC4528F264F0D850036FA6E /* MenuViewController_Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController_Admin.swift; sourceTree = "<group>"; };
 		5CC45296264F1EBA0036FA6E /* AdminCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminCollectionViewCell.swift; sourceTree = "<group>"; };
 		5CC452A42650A8090036FA6E /* UserListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewController.swift; sourceTree = "<group>"; };
 		5CC452AE2650ABAD0036FA6E /* AdminMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMenuTableViewController.swift; sourceTree = "<group>"; };
 		5CC452B52650B02B0036FA6E /* CreateQuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateQuizViewController.swift; sourceTree = "<group>"; };
 		5CC452C42650DFEB0036FA6E /* TextStylingFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStylingFunction.swift; sourceTree = "<group>"; };
+		5CC453402652C5360036FA6E /* QuizPageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPageTableViewController.swift; sourceTree = "<group>"; };
+		5CC4534A2652C5610036FA6E /* RankingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTableViewCell.swift; sourceTree = "<group>"; };
+		5CC453512652C57F0036FA6E /* UserListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewCell.swift; sourceTree = "<group>"; };
+		5CC453582652C59E0036FA6E /* QuizPageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPageTableViewCell.swift; sourceTree = "<group>"; };
+		5CC4535F2652CECA0036FA6E /* UserFeedbackTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeedbackTableViewController.swift; sourceTree = "<group>"; };
+		5CC453662652CEF10036FA6E /* UserFeedbackTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFeedbackTableViewCell.swift; sourceTree = "<group>"; };
 		5EFCB98A227B12095A3D5C45 /* Pods-QuizApp-QuizAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QuizApp-QuizAppUITests.release.xcconfig"; path = "Target Support Files/Pods-QuizApp-QuizAppUITests/Pods-QuizApp-QuizAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		82717AC5AAE0294748EC4E52 /* Pods_QuizApp_QuizAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuizApp_QuizAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF4FCEDCB01F065E21B0853 /* Pods_QuizAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuizAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,15 +240,13 @@
 		5C5716BB264B92DA0067EA6F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5CC4533C2652C3770036FA6E /* TableViewControllers */,
 				5CC452C42650DFEB0036FA6E /* TextStylingFunction.swift */,
 				5C5715CB264AD65B0067EA6F /* ViewController.swift */,
 				5C5716BF264B99130067EA6F /* SignUpViewController.swift */,
 				5C5716C9264B99310067EA6F /* LogInViewController.swift */,
 				5C5716D0264B994A0067EA6F /* ForgotPWViewController.swift */,
-				5C5716F6264B9EB00067EA6F /* RankingTableViewController.swift */,
 				5C571704264B9EDA0067EA6F /* FeedbackViewController.swift */,
-				5CC45258264D91670036FA6E /* QuizPageViewController.swift */,
-				5CC452A42650A8090036FA6E /* UserListTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -245,6 +263,21 @@
 				5CC452B52650B02B0036FA6E /* CreateQuizViewController.swift */,
 			);
 			path = QuizMainPage;
+			sourceTree = "<group>";
+		};
+		5CC4533C2652C3770036FA6E /* TableViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5C5716F6264B9EB00067EA6F /* RankingTableViewController.swift */,
+				5CC452A42650A8090036FA6E /* UserListTableViewController.swift */,
+				5CC453402652C5360036FA6E /* QuizPageTableViewController.swift */,
+				5CC4534A2652C5610036FA6E /* RankingTableViewCell.swift */,
+				5CC453512652C57F0036FA6E /* UserListTableViewCell.swift */,
+				5CC453582652C59E0036FA6E /* QuizPageTableViewCell.swift */,
+				5CC4535F2652CECA0036FA6E /* UserFeedbackTableViewController.swift */,
+				5CC453662652CEF10036FA6E /* UserFeedbackTableViewCell.swift */,
+			);
+			path = TableViewControllers;
 			sourceTree = "<group>";
 		};
 		AC8BE9B612EDD590CDFCF605 /* Pods */ = {
@@ -501,22 +534,27 @@
 				5C5716C0264B99130067EA6F /* SignUpViewController.swift in Sources */,
 				5C5715CC264AD65B0067EA6F /* ViewController.swift in Sources */,
 				5C571705264B9EDA0067EA6F /* FeedbackViewController.swift in Sources */,
-				5CC45259264D91680036FA6E /* QuizPageViewController.swift in Sources */,
 				5CC45241264D7D340036FA6E /* QuizCollectionViewCell.swift in Sources */,
 				5CC452B62650B02B0036FA6E /* CreateQuizViewController.swift in Sources */,
 				5CC45290264F0D860036FA6E /* MenuViewController_Admin.swift in Sources */,
+				5CC453412652C5360036FA6E /* QuizPageTableViewController.swift in Sources */,
 				5C5716CA264B99310067EA6F /* LogInViewController.swift in Sources */,
 				5C5715C8264AD65B0067EA6F /* AppDelegate.swift in Sources */,
+				5CC453672652CEF20036FA6E /* UserFeedbackTableViewCell.swift in Sources */,
 				5CC452AF2650ABAD0036FA6E /* AdminMenuTableViewController.swift in Sources */,
 				5C5716D1264B994A0067EA6F /* ForgotPWViewController.swift in Sources */,
 				5C5716DF264B99860067EA6F /* UserMenuTableViewController.swift in Sources */,
 				5CC452A52650A80A0036FA6E /* UserListTableViewController.swift in Sources */,
+				5CC453522652C57F0036FA6E /* UserListTableViewCell.swift in Sources */,
 				5C5715D2264AD65B0067EA6F /* QuizApp.xcdatamodeld in Sources */,
+				5CC453592652C59E0036FA6E /* QuizPageTableViewCell.swift in Sources */,
+				5CC4534B2652C5610036FA6E /* RankingTableViewCell.swift in Sources */,
 				5C5715CA264AD65B0067EA6F /* SceneDelegate.swift in Sources */,
 				5C5716F7264B9EB00067EA6F /* RankingTableViewController.swift in Sources */,
 				5C5716D8264B99640067EA6F /* MenuViewController.swift in Sources */,
 				5CC452C52650DFEB0036FA6E /* TextStylingFunction.swift in Sources */,
 				5CC45297264F1EBA0036FA6E /* AdminCollectionViewCell.swift in Sources */,
+				5CC453602652CECB0036FA6E /* UserFeedbackTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,19 +562,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CC453422652C5360036FA6E /* QuizPageTableViewController.swift in Sources */,
 				5C5716C1264B99130067EA6F /* SignUpViewController.swift in Sources */,
+				5CC4534C2652C5610036FA6E /* RankingTableViewCell.swift in Sources */,
 				5C5716D9264B99640067EA6F /* MenuViewController.swift in Sources */,
 				5CC452B02650ABAD0036FA6E /* AdminMenuTableViewController.swift in Sources */,
+				5CC453682652CEF20036FA6E /* UserFeedbackTableViewCell.swift in Sources */,
+				5CC453612652CECB0036FA6E /* UserFeedbackTableViewController.swift in Sources */,
 				5C5716F8264B9EB00067EA6F /* RankingTableViewController.swift in Sources */,
 				5C571706264B9EDA0067EA6F /* FeedbackViewController.swift in Sources */,
 				5CC452B72650B02B0036FA6E /* CreateQuizViewController.swift in Sources */,
 				5C5716E0264B99860067EA6F /* UserMenuTableViewController.swift in Sources */,
 				5C5715E2264AD65D0067EA6F /* QuizAppTests.swift in Sources */,
 				5CC45242264D7D340036FA6E /* QuizCollectionViewCell.swift in Sources */,
+				5CC4535A2652C59E0036FA6E /* QuizPageTableViewCell.swift in Sources */,
 				5CC45291264F0D870036FA6E /* MenuViewController_Admin.swift in Sources */,
 				5CC45298264F1EBA0036FA6E /* AdminCollectionViewCell.swift in Sources */,
 				5C5716D2264B994A0067EA6F /* ForgotPWViewController.swift in Sources */,
-				5CC4525A264D91680036FA6E /* QuizPageViewController.swift in Sources */,
+				5CC453532652C57F0036FA6E /* UserListTableViewCell.swift in Sources */,
 				5CC452A62650A80B0036FA6E /* UserListTableViewController.swift in Sources */,
 				5C5716CB264B99310067EA6F /* LogInViewController.swift in Sources */,
 			);
@@ -546,19 +589,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CC453432652C5360036FA6E /* QuizPageTableViewController.swift in Sources */,
 				5C5716C2264B99130067EA6F /* SignUpViewController.swift in Sources */,
+				5CC4534D2652C5610036FA6E /* RankingTableViewCell.swift in Sources */,
 				5C5716DA264B99640067EA6F /* MenuViewController.swift in Sources */,
 				5CC452B12650ABAD0036FA6E /* AdminMenuTableViewController.swift in Sources */,
+				5CC453692652CEF20036FA6E /* UserFeedbackTableViewCell.swift in Sources */,
+				5CC453622652CECB0036FA6E /* UserFeedbackTableViewController.swift in Sources */,
 				5C5716F9264B9EB00067EA6F /* RankingTableViewController.swift in Sources */,
 				5C571707264B9EDA0067EA6F /* FeedbackViewController.swift in Sources */,
 				5CC452B82650B02B0036FA6E /* CreateQuizViewController.swift in Sources */,
 				5C5716E1264B99860067EA6F /* UserMenuTableViewController.swift in Sources */,
 				5C5715ED264AD65D0067EA6F /* QuizAppUITests.swift in Sources */,
 				5CC45243264D7D340036FA6E /* QuizCollectionViewCell.swift in Sources */,
+				5CC4535B2652C59E0036FA6E /* QuizPageTableViewCell.swift in Sources */,
 				5CC45292264F0D870036FA6E /* MenuViewController_Admin.swift in Sources */,
 				5CC45299264F1EBA0036FA6E /* AdminCollectionViewCell.swift in Sources */,
 				5C5716D3264B994A0067EA6F /* ForgotPWViewController.swift in Sources */,
-				5CC4525B264D91680036FA6E /* QuizPageViewController.swift in Sources */,
+				5CC453542652C57F0036FA6E /* UserListTableViewCell.swift in Sources */,
 				5CC452A72650A80C0036FA6E /* UserListTableViewController.swift in Sources */,
 				5C5716CC264B99310067EA6F /* LogInViewController.swift in Sources */,
 			);

@@ -57,9 +57,9 @@ class AdminMenuTableViewController: UITableViewController {
                 present(UserListVC, animated: true)
                 UserListVC.modalPresentationStyle = .fullScreen
         case 1:
-            let FeedbackVC = storyboard.instantiateViewController(identifier: "feedback") as! FeedbackViewController
-                present(FeedbackVC, animated: true)
-                FeedbackVC.modalPresentationStyle = .fullScreen
+            let FeedbackListVC = storyboard.instantiateViewController(identifier: "feedbacklist") as! UserFeedbackTableViewController
+                present(FeedbackListVC, animated: true)
+                FeedbackListVC.modalPresentationStyle = .fullScreen
         default:
             print("")
         }
