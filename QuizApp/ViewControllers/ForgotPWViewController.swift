@@ -12,7 +12,7 @@ class ForgotPWViewController: UIViewController {
     let alertUsername = UIAlertController(title: "Invalid Username", message: "We're sorry, we can't find that username, please try again", preferredStyle: .alert)
     let invalidPasswordAlert = UIAlertController(title: "Invalid Password", message: "Please enter a valid password", preferredStyle: .alert)
     let passwordDialog = UIAlertController(title: "Reset Password", message: "Please enter your new password below", preferredStyle: .alert)
-    let username = ""
+    var username = ""
     
     @IBOutlet weak var usernameField: UITextField!
     override func viewDidLoad() {
@@ -24,8 +24,9 @@ class ForgotPWViewController: UIViewController {
         }
         passwordDialog.addAction(UIAlertAction(title: "Continue", style: .default) {[self, weak passwordDialog] _ in
             guard let textfield = passwordDialog?.textFields?[0] else { return }
-            if let passwordText = textfield.text {
-                DBHelper.inst.updateUser(username: username, password: passwordText)
+            let passwordText = textfield.text
+                let user = DatabaseHelper.inst.fetchUserSpecifiedData(username: username)
+                if user.password == passwordText{
                 self.presentingViewController?.dismiss(animated: false, completion: nil)
             } else {
                 self.dismiss(animated: false, completion: nil)
@@ -40,8 +41,9 @@ class ForgotPWViewController: UIViewController {
         }
         invalidPasswordAlert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { [self, weak invalidPasswordAlert] _ in
             guard let textfield = invalidPasswordAlert?.textFields?[0] else { return }
-            if let passwordText = textfield.text {
-                DBHelper.inst.updateUser(username: username, password: passwordText)
+            let passwordText = textfield.text
+            let user = DatabaseHelper.inst.fetchUserSpecifiedData(username: username)
+            if user.password == passwordText{
                 self.presentingViewController?.dismiss(animated: false, completion: nil)
                 
             } else {
@@ -54,9 +56,9 @@ class ForgotPWViewController: UIViewController {
     
     @IBAction func submit(_ sender: Any) {
         
-        let user = DBHelper.inst.fetchUser(username: usernameField.text)
+        let user = DatabaseHelper.inst.fetchUserSpecifiedData(username: username)
         if (user.username != nil) {
-            username = user.username
+            username = user.username!
             self.present(passwordDialog, animated: false)
         } else {
             self.present(alertUsername, animated: false)
