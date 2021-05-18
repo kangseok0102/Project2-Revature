@@ -66,16 +66,16 @@ class DatabaseHelper {
         var user = Users()
         let scores = NSEntityDescription.insertNewObject(forEntityName: "Scores", into: context!) as! Scores
         
-        if (DatabaseHelper.arrCategory.contains(MenuViewController.categoryName)) {
+        if (DatabaseHelper.arrCategory.contains(MenuViewController.categoryName!)) {
             print("Inside if statement")
-            let indexOfCategory = DatabaseHelper.arrCategory.index(of: MenuViewController.categoryName)
+            let indexOfCategory = DatabaseHelper.arrCategory.index(of: MenuViewController.categoryName!)
             DatabaseHelper.arrCorrectAnswer[indexOfCategory!] = countOfCorrectAnswers
         }
         else {
             print("Inside else statement")
             DatabaseHelper.arrCountOfQuestion.append(countOfQuestions)
             DatabaseHelper.arrCorrectAnswer.append(countOfCorrectAnswers)
-            DatabaseHelper.arrCategory.append(MenuViewController.categoryName)
+            DatabaseHelper.arrCategory.append(MenuViewController.categoryName!)
         }
         scores.correctAnswers = DatabaseHelper.arrCorrectAnswer
         scores.totalQuestions = DatabaseHelper.arrCountOfQuestion

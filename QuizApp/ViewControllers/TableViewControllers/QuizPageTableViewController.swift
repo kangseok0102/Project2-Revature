@@ -88,7 +88,8 @@ class QuizPageTableViewController: UIViewController, UITableViewDelegate, UITabl
         let uniqueCategoryData = categoryData.unique{$0.name}
         for q in categoryData {
             print("INSIDE SETUP QUESTIONS")
-            print(q)
+            print(q.name)
+            print(MenuViewController.categoryName)
             if (q.name == MenuViewController.categoryName) {
                 print("INSIDE IF STATEMENT")
                 quizQuestions.append(Question(text: (q.categories?.questionText!)!, choice: [

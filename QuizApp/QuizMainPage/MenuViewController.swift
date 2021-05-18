@@ -14,7 +14,8 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var categories : [Categories] = DatabaseHelper.inst.fetchAllCategoriesData()
     var categoryCreationData : [String : Bool] = [:]
     var menu: SideMenuNavigationController?
-    static var categoryName: String = ""
+    var mvc = MenuViewController.self
+    static var categoryName: String?
     static var arrOfUniqueCategoryNames: [String] = []
     
     override func viewDidLoad() {
@@ -72,8 +73,9 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        MenuViewController.categoryName = MenuViewController.arrOfUniqueCategoryNames[indexPath.row]
-        print("Category Name Saved is: \(MenuViewController.categoryName)")
+        print(mvc.arrOfUniqueCategoryNames)
+        mvc.categoryName = mvc.arrOfUniqueCategoryNames[indexPath.row]
+        print("Category Name Saved is: \(mvc.categoryName)")
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
