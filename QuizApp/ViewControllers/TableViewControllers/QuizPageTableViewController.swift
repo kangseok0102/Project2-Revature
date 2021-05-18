@@ -15,7 +15,7 @@ class QuizPageTableViewController: UIViewController, UITableViewDelegate, UITabl
     let categoryData = DatabaseHelper.inst.fetchAllCategoriesData()
     var quizQuestions = [Question]()
     var currentQuestion: Question?
-    var currentCategory = TestingViewController.categoryName //problem here, this is from old database
+    var currentCategory = MenuViewController.categoryName
     static var categoryName: String = ""
     var currentPoints: Int64 = 0
     var totalCountOfQuestions: Int64 = 0
@@ -28,7 +28,7 @@ class QuizPageTableViewController: UIViewController, UITableViewDelegate, UITabl
         setupQuestions()
         getTotalCountOfQuestions()
         configureUI(question: quizQuestions.first!)
-        SetQuizPropertiesViewController.categoryName = currentCategory
+        //SetQuizPropertiesViewController.categoryName = currentCategory
     }
     
     func getTotalCountOfQuestions() {
@@ -59,13 +59,11 @@ class QuizPageTableViewController: UIViewController, UITableViewDelegate, UITabl
                 answerTableView.reloadData()
             }
             else {
-                print("INSIDE ELSE BLOCK")
                 checkAnswer(answer: answer, question: question)
                 print("Username: \(TestingViewController.username)")
                 print("Current Points: \(currentPoints)")
                 print("Total Points: \(totalCountOfQuestions)")
                 DatabaseHelper.inst.saveQuizScore(username: TestingViewController.username, countOfCorrectAnswers: currentPoints, countOfQuestions: totalCountOfQuestions)
-                print("I SHOULD HAVE SAVED THE SCORES")
                 let sBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 let menuPage = sBoard.instantiateViewController(identifier: "QuizMainPage") as! MenuViewController
                 present(menuPage, animated: true, completion: nil)
@@ -87,10 +85,11 @@ class QuizPageTableViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     private func setupQuestions() {
+        let uniqueCategoryData = categoryData.unique{$0.name}
         for q in categoryData {
             print("INSIDE SETUP QUESTIONS")
             print(q)
-            if (q.name == "Food"/*currentCategory*/) {
+            if (q.name == MenuViewController.categoryName) {
                 print("INSIDE IF STATEMENT")
                 quizQuestions.append(Question(text: (q.categories?.questionText!)!, choice: [
                     Choice(text: (q.categories?.choices?.choiceText![0])!, isCorrect: (q.categories?.choices?.isCorrect![0])!),

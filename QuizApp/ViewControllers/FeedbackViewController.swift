@@ -92,7 +92,11 @@ class FeedbackViewController: UIViewController, SFSpeechRecognizerDelegate {
         }
     
     }
-        
+
+    @IBAction func submitAndSaveFeedback(_ sender: Any) {
+        DatabaseHelper.inst.updateFeedback(username: LogInViewController.username, feedback: lb.text!)
     }
+    
+}
     
 

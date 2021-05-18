@@ -16,6 +16,7 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var LogInBttn: UIButton!
     @IBOutlet weak var FacebookBttn: UIButton!
     @IBOutlet weak var ForgotBttn: UIButton!
+    static var username: String = ""
     
     let alertUsername = UIAlertController(title: "Invalid Username", message: "We're sorry, we can't find that username, please try again", preferredStyle: .alert)
     let alertLogin = UIAlertController(title: "Invalid Login Credentials", message: "Invalid login credentials, please try again", preferredStyle: .alert)
@@ -90,15 +91,16 @@ class LogInViewController: UIViewController {
     @IBAction func login(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let homeVC = storyboard.instantiateViewController(identifier: "QuizMainPage")
+        let adminPage = storyboard.instantiateViewController(identifier: "Admin")
         
         if (UsernameTxt.text == "admin" && PasswordTxt.text == "admin") {
-            let sBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let adminPage = sBoard.instantiateViewController(identifier: "Admin") as! MenuViewController_Admin
             present(adminPage, animated: true, completion: nil)
+            adminPage.modalPresentationStyle = .fullScreen
         }
         
         let isValidated = authenticate(username: UsernameTxt.text, password: PasswordTxt.text)
         if (isValidated){
+            LogInViewController.username = UsernameTxt.text!
             present(homeVC, animated: true)
             homeVC.modalPresentationStyle = .fullScreen
         } else {

@@ -66,16 +66,16 @@ class DatabaseHelper {
         var user = Users()
         let scores = NSEntityDescription.insertNewObject(forEntityName: "Scores", into: context!) as! Scores
         
-        if (DatabaseHelper.arrCategory.contains(SetQuizPropertiesViewController.categoryName!)) {
+        if (DatabaseHelper.arrCategory.contains(MenuViewController.categoryName)) {
             print("Inside if statement")
-            let indexOfCategory = DatabaseHelper.arrCategory.index(of: SetQuizPropertiesViewController.categoryName!)
+            let indexOfCategory = DatabaseHelper.arrCategory.index(of: MenuViewController.categoryName)
             DatabaseHelper.arrCorrectAnswer[indexOfCategory!] = countOfCorrectAnswers
         }
         else {
             print("Inside else statement")
             DatabaseHelper.arrCountOfQuestion.append(countOfQuestions)
             DatabaseHelper.arrCorrectAnswer.append(countOfCorrectAnswers)
-            DatabaseHelper.arrCategory.append(SetQuizPropertiesViewController.categoryName!)
+            DatabaseHelper.arrCategory.append(MenuViewController.categoryName)
         }
         scores.correctAnswers = DatabaseHelper.arrCorrectAnswer
         scores.totalQuestions = DatabaseHelper.arrCountOfQuestion
@@ -206,21 +206,40 @@ class DatabaseHelper {
     }
     
     func updateSubStatus(username: String, subStatus: Bool) {
-            var user = Users()
-            let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
-            fetchReq.predicate = NSPredicate(format: "username == %@", username)
+        var user = Users()
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        fetchReq.predicate = NSPredicate(format: "username == %@", username)
 
-            do {
-                let u = try context?.fetch(fetchReq)
-                if (u?.count != 0) {
-                    user = u?.first as! Users
-                    user.isSubscribed = !subStatus
-                    try context?.save()
-                    print("User Subscribed status changed")
-                }
-            }
-            catch {
-                print("Error")
+        do {
+            let u = try context?.fetch(fetchReq)
+            if (u?.count != 0) {
+                user = u?.first as! Users
+                user.isSubscribed = !subStatus
+                try context?.save()
+                print("User Subscribed status changed")
             }
         }
+        catch {
+            print("Error")
+        }
+    }
+    
+    func updateFeedback(username: String, feedback: String) {
+        var user = Users()
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        fetchReq.predicate = NSPredicate(format: "username == %@", username)
+
+        do {
+            let u = try context?.fetch(fetchReq)
+            if (u?.count != 0) {
+                user = u?.first as! Users
+                user.feedback = feedback
+                try context?.save()
+                print("User Feedback updated")
+            }
+        }
+        catch {
+            print("Error")
+        }
+    }
 }

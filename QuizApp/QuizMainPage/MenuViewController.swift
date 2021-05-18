@@ -10,19 +10,16 @@ import SideMenu
 
 class MenuViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-
     //@IBOutlet weak var newQuizNotificationLabel: UILabel!
     var categories : [Categories] = DatabaseHelper.inst.fetchAllCategoriesData()
     var categoryCreationData : [String : Bool] = [:]
-
     var menu: SideMenuNavigationController?
+    static var categoryName: String = ""
+    static var arrOfUniqueCategoryNames: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
         menu = SideMenuNavigationController(rootViewController: UserMenuTableViewController())
-
         setupView()
     }
     
@@ -46,7 +43,7 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     var QuizImg = ["JavaImg", "PythonImg", "SwiftImg", "SQLImg"]
     var QuizIcon = ["Java", "Python", "Swift", "Sql"]
-    var QuizCt = ["Jave Quiz", "Python Quiz", "Swift Quiz", "SQL Quiz"]
+    var QuizCt = ["Java Quiz", "Python Quiz", "Swift Quiz", "SQL Quiz"]
     var QuizDp = ["You can test your Java skills with this quiz", "You can test your Python skills with this quiz", "You can test your Swift skills with this quiz", "You can test your SQL skills with this quiz"]
     
 
@@ -55,26 +52,28 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+        return getUniqueCount()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var index = QuizImg.count
-        var i = 0
         let cell =  collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionCell", for: indexPath) as! QuizCollectionViewCell
-        let categoryName = categories[indexPath.row].name
+        let uniqueCategories = categories.unique{$0.name}
+        let categoryName = uniqueCategories[indexPath.row].name
         if (QuizIcon.contains(categoryName!)) {
             index = QuizIcon.firstIndex(of: categoryName!)!
         }
-        while i < index {
-            cell.QuizImg.image = UIImage(named: QuizImg[i])
-            cell.QuizIcon.image = UIImage(named: QuizIcon[i])
-            cell.QuizCt.text = QuizCt[i]
-            cell.QuizDp.text = QuizDp[i]
-            i += 1
-        }
+        cell.QuizImg.image = UIImage(named: QuizImg[indexPath.row])
+        cell.QuizIcon.image = UIImage(named: QuizIcon[indexPath.row])
+        cell.QuizCt.text = QuizCt[indexPath.row]
+        cell.QuizDp.text = QuizDp[indexPath.row]
+
         return cell
-        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        MenuViewController.categoryName = MenuViewController.arrOfUniqueCategoryNames[indexPath.row]
+        print("Category Name Saved is: \(MenuViewController.categoryName)")
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -91,6 +90,40 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         //newQuizNotificationLabel.isHidden = false
     }
+    
+    func getUniqueCount() -> Int {
+        let categoryData = DatabaseHelper.inst.fetchAllCategoriesData()
+        var arrCategory: [String] = []
+        var uniqueData: [String] = []
+        
+        for c in categoryData {
+            arrCategory.append(c.name!)
+        }
+        uniqueData = arrCategory.uniqued()
+        
+        MenuViewController.arrOfUniqueCategoryNames = uniqueData //Set static var for quizviewcontroller
+        return uniqueData.count
+    }
 }
 
+extension Sequence where Element: Hashable {
+    func uniqued() -> [Element] {
+        var set = Set<Element>()
+        return filter { set.insert($0).inserted }
+    }
+}
 
+extension Array {
+    func unique<T:Hashable>(map: ((Element) -> (T)))  -> [Element] {
+        var set = Set<T>() //the unique list kept in a Set for fast retrieval
+        var arrayOrdered = [Element]() //keeping the unique list of elements but ordered
+        for value in self {
+            if !set.contains(map(value)) {
+                set.insert(map(value))
+                arrayOrdered.append(value)
+            }
+        }
+
+        return arrayOrdered
+    }
+}
