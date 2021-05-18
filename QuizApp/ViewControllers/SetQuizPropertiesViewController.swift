@@ -11,7 +11,6 @@ class SetQuizPropertiesViewController: UIViewController {
 
     @IBOutlet weak var categoryNameTextField: UITextField!
     @IBOutlet weak var numTextField: UITextField!
-    var qvc = SetQuizPropertiesViewController.self
     static var numOfQuestionsOnNewQuiz: Int64?
     static var categoryName: String?
     
@@ -20,11 +19,14 @@ class SetQuizPropertiesViewController: UIViewController {
     }
     
     @IBAction func pressButton(_ sender: Any) {
-        qvc.numOfQuestionsOnNewQuiz = Int64(numTextField.text!)
-        qvc.categoryName = categoryNameTextField.text!
+        SetQuizPropertiesViewController.numOfQuestionsOnNewQuiz = Int64(numTextField.text!)
+        SetQuizPropertiesViewController.categoryName = categoryNameTextField.text!
         let sBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let testPage = sBoard.instantiateViewController(identifier: "TestCreator") as! TestCreatorViewController
         present(testPage, animated: true, completion: nil)
+        print("I AM HERE")
+        print("Number of Questions: \(SetQuizPropertiesViewController.numOfQuestionsOnNewQuiz!)")
+        print("Category Name: \(SetQuizPropertiesViewController.categoryName!)")
         print("Making \(SetQuizPropertiesViewController.numOfQuestionsOnNewQuiz!) questions")
     }
     

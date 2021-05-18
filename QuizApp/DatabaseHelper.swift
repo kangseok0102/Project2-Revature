@@ -13,6 +13,9 @@ class DatabaseHelper {
     
     static var inst = DatabaseHelper()
     let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    static var arrCountOfQuestion = [Int64]()
+    static var arrCorrectAnswer = [Int64]()
+    static var arrCategory = [String]()
     
     func saveNewUser(object : [String : String]) {
         let user = NSEntityDescription.insertNewObject(forEntityName: "Users", into: context!) as! Users
@@ -45,8 +48,8 @@ class DatabaseHelper {
         catch{
             print("Data not saved")
         }
-        category.name = SetQuizPropertiesViewController.categoryName
-        category.totalQuestions = SetQuizPropertiesViewController.numOfQuestionsOnNewQuiz!
+        category.name = CreateQuizViewController.categoryName
+        category.totalQuestions = CreateQuizViewController.numOfQuestionsOnNewQuiz!
         questions.questionText = question
         questions.choices = answers
         category.categories = questions
@@ -62,9 +65,25 @@ class DatabaseHelper {
     func saveQuizScore(username: String, countOfCorrectAnswers: Int64, countOfQuestions: Int64) {
         var user = Users()
         let scores = NSEntityDescription.insertNewObject(forEntityName: "Scores", into: context!) as! Scores
-        scores.correctAnswers = countOfCorrectAnswers
-        scores.totalQuestions = countOfQuestions
+        
+        if (DatabaseHelper.arrCategory.contains(SetQuizPropertiesViewController.categoryName!)) {
+            print("Inside if statement")
+            let indexOfCategory = DatabaseHelper.arrCategory.index(of: SetQuizPropertiesViewController.categoryName!)
+            DatabaseHelper.arrCorrectAnswer[indexOfCategory!] = countOfCorrectAnswers
+        }
+        else {
+            print("Inside else statement")
+            DatabaseHelper.arrCountOfQuestion.append(countOfQuestions)
+            DatabaseHelper.arrCorrectAnswer.append(countOfCorrectAnswers)
+            DatabaseHelper.arrCategory.append(SetQuizPropertiesViewController.categoryName!)
+        }
+        scores.correctAnswers = DatabaseHelper.arrCorrectAnswer
+        scores.totalQuestions = DatabaseHelper.arrCountOfQuestion
+        scores.category = DatabaseHelper.arrCategory
+        //scores.correctAnswers = countOfCorrectAnswers
+        //scores.totalQuestions = countOfQuestions
         do{
+            print(scores.correctAnswers, scores.totalQuestions, scores.category)
             try context?.save()
             print("Score and Total Question Data saved")
         }
@@ -204,5 +223,4 @@ class DatabaseHelper {
                 print("Error")
             }
         }
-    
 }

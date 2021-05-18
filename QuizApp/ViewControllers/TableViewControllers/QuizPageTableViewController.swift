@@ -7,83 +7,108 @@
 
 import UIKit
 
-class QuizPageTableViewController: UITableViewController {
+class QuizPageTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var answerTableView: UITableView!
+    let categoryData = DatabaseHelper.inst.fetchAllCategoriesData()
+    var quizQuestions = [Question]()
+    var currentQuestion: Question?
+    var currentCategory = TestingViewController.categoryName //problem here, this is from old database
+    static var categoryName: String = ""
+    var currentPoints: Int64 = 0
+    var totalCountOfQuestions: Int64 = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        categoryLabel.text = currentCategory
+        answerTableView.delegate = self
+        answerTableView.dataSource = self
+        setupQuestions()
+        getTotalCountOfQuestions()
+        configureUI(question: quizQuestions.first!)
+        SetQuizPropertiesViewController.categoryName = currentCategory
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+    
+    func getTotalCountOfQuestions() {
+        totalCountOfQuestions = Int64(quizQuestions.count)
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return currentQuestion?.choice.count ?? 0
     }
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "listChoice", for: indexPath)
+        cell.textLabel?.text = currentQuestion?.choice[indexPath.row].text
         return cell
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let question = currentQuestion else {
+            return
+        }
+        let answer = question.choice[indexPath.row]
+        if let index = quizQuestions.firstIndex(where: { $0.text == question.text }) {
+            if index < (quizQuestions.count - 1) {
+                checkAnswer(answer: answer, question: question)
+                let nextQuestion = quizQuestions[index + 1]
+                configureUI(question: nextQuestion)
+                answerTableView.reloadData()
+            }
+            else {
+                print("INSIDE ELSE BLOCK")
+                checkAnswer(answer: answer, question: question)
+                print("Username: \(TestingViewController.username)")
+                print("Current Points: \(currentPoints)")
+                print("Total Points: \(totalCountOfQuestions)")
+                DatabaseHelper.inst.saveQuizScore(username: TestingViewController.username, countOfCorrectAnswers: currentPoints, countOfQuestions: totalCountOfQuestions)
+                print("I SHOULD HAVE SAVED THE SCORES")
+                let sBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let menuPage = sBoard.instantiateViewController(identifier: "QuizMainPage") as! MenuViewController
+                present(menuPage, animated: true, completion: nil)
+                print("Quiz Finished, going back to Testing Screen")
+            }
+        }
     }
-    */
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    func checkAnswer(answer: Choice, question: Question) {
+        if question.choice.contains(where: { $0.text == answer.text }) && answer.isCorrect {
+            currentPoints += 1
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    private func configureUI(question: Question) {
+        questionLabel.text = question.text
+        currentQuestion = question
+        answerTableView.reloadData()
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    private func setupQuestions() {
+        for q in categoryData {
+            print("INSIDE SETUP QUESTIONS")
+            print(q)
+            if (q.name == "Food"/*currentCategory*/) {
+                print("INSIDE IF STATEMENT")
+                quizQuestions.append(Question(text: (q.categories?.questionText!)!, choice: [
+                    Choice(text: (q.categories?.choices?.choiceText![0])!, isCorrect: (q.categories?.choices?.isCorrect![0])!),
+                    Choice(text: (q.categories?.choices?.choiceText![1])!, isCorrect: (q.categories?.choices?.isCorrect![1])!),
+                    Choice(text: (q.categories?.choices?.choiceText![2])!, isCorrect: (q.categories?.choices?.isCorrect![2])!),
+                    Choice(text: (q.categories?.choices?.choiceText![3])!, isCorrect: (q.categories?.choices?.isCorrect![3])!)
+                ]))
+            }
+        }
     }
-    */
+}
 
-    /*
-    // MARK: - Navigation
+struct Question {
+    var text: String
+    let choice: [Choice]
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+struct Choice {
+    let text: String
+    let isCorrect: Bool
 }

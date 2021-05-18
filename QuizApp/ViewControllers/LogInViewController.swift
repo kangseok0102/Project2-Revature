@@ -91,6 +91,12 @@ class LogInViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let homeVC = storyboard.instantiateViewController(identifier: "QuizMainPage")
         
+        if (UsernameTxt.text == "admin" && PasswordTxt.text == "admin") {
+            let sBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let adminPage = sBoard.instantiateViewController(identifier: "Admin") as! MenuViewController_Admin
+            present(adminPage, animated: true, completion: nil)
+        }
+        
         let isValidated = authenticate(username: UsernameTxt.text, password: PasswordTxt.text)
         if (isValidated){
             present(homeVC, animated: true)

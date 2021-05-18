@@ -113,13 +113,3 @@ class QuizViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
 }
-
-struct Question {
-    var text: String
-    let choice: [Choice]
-}
-
-struct Choice {
-    let text: String
-    let isCorrect: Bool
-}
