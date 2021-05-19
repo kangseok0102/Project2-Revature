@@ -9,6 +9,7 @@ import UIKit
 
 class TestCreatorViewController: UIViewController {
 
+    @IBOutlet weak var RegisterBttn: UIButton!
     @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var choiceATextField: UITextField!
     @IBOutlet weak var choiceBTextField: UITextField!
@@ -30,6 +31,12 @@ class TestCreatorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setStatusLabel()
+        RegisterBttn.BttnDesign()
+        questionTextField.TextBoxDesign()
+        choiceATextField.TextBoxDesign()
+        choiceBTextField.TextBoxDesign()
+        choiceCTextField.TextBoxDesign()
+        choiceDTextField.TextBoxDesign()
     }
 
     func setStatusLabel() {

@@ -7,7 +7,7 @@ target 'QuizApp' do
   
   pod 'SideMenu'
   pod 'FBSDKLoginKit'
-  
+  pod 'MBCircularProgressBar'
   # Pods for QuizApp
 
   target 'QuizAppTests' do

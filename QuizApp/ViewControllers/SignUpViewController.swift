@@ -44,12 +44,30 @@ class SignUpViewController: UIViewController {
 
     @IBAction func SignUpBttn(_ sender: Any) {
         
-        let dictionary = ["username": UsernameTxt.text, "password": PasswordTxt.text]
-        DatabaseHelper.inst.saveNewUser(object: dictionary as! [String : String])
-        let vc = storyboard?.instantiateViewController(identifier: "LogInPage") as! LogInViewController
-            present(vc, animated: true)
-            vc.modalPresentationStyle = .fullScreen
-   
+        let MovePage = UIAlertController(title: "Success!", message: "You Successfully Signed Up", preferredStyle: UIAlertController.Style.alert)
+        let InvalidInfo = UIAlertController(title: "Password Does Not Match", message: "Please Enter Identical Password", preferredStyle: UIAlertController.Style.alert)
+        let RetryAlert = UIAlertController(title: "Invalid Information", message: "Please Enter All Required Fields", preferredStyle: UIAlertController.Style.alert)
+        
+        if(PasswordTxt.text != ConfirmTxt.text){
+            
+            InvalidInfo.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(InvalidInfo, animated: true, completion: nil)
+            
+        } else if (UsernameTxt.text == "" || PasswordTxt.text == "" || ConfirmTxt.text == ""){
+            RetryAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(RetryAlert, animated: true, completion: nil)
+        }
+        else{
+            let dictionary = ["username": UsernameTxt.text, "password": PasswordTxt.text]
+            DatabaseHelper.inst.saveNewUser(object: dictionary as! [String : String])
+            MovePage.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+            self.present(MovePage, animated: true, completion: nil)
+            
+        }
+        
+        UsernameTxt.text = ""
+        PasswordTxt.text = ""
+        ConfirmTxt.text = ""
     
         
     }

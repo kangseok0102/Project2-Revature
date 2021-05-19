@@ -10,6 +10,8 @@ import Speech
 
 class FeedbackViewController: UIViewController, SFSpeechRecognizerDelegate {
     
+    @IBOutlet weak var FeedbackBttn: UIButton!
+    @IBOutlet weak var SubmitBttn: UIButton!
     
     @IBOutlet weak var lb: UILabel!
     
@@ -74,7 +76,10 @@ class FeedbackViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        FeedbackBttn.BttnDesign()
+        SubmitBttn.BttnDesign()
+        
     }
     
     
@@ -90,13 +95,17 @@ class FeedbackViewController: UIViewController, SFSpeechRecognizerDelegate {
             cancelSpeechRecog()
             (sender as AnyObject).setTitle("Start", for: .normal)
         }
-    
+        
     }
-
+    
     @IBAction func submitAndSaveFeedback(_ sender: Any) {
         DatabaseHelper.inst.updateFeedback(username: LogInViewController.username, feedback: lb.text!)
+        let Submission = UIAlertController(title: "Success!", message: "You Successfully Submitted Your Feedback", preferredStyle: UIAlertController.Style.alert)
+        Submission.addAction(UIAlertAction(title: "Continue", style: .default, handler: nil))
+        self.present(Submission, animated: true, completion: nil)
+        
     }
     
 }
-    
+
 

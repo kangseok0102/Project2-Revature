@@ -93,18 +93,22 @@ class LogInViewController: UIViewController {
         let homeVC = storyboard.instantiateViewController(identifier: "QuizMainPage")
         let adminPage = storyboard.instantiateViewController(identifier: "Admin")
         
-        if (UsernameTxt.text == "admin" && PasswordTxt.text == "admin") {
+        if (UsernameTxt.text == "" && PasswordTxt.text == ""){
+            present(alertLogin, animated: true)
+        }
+        else if (UsernameTxt.text == "admin" && PasswordTxt.text == "admin") {
             present(adminPage, animated: true, completion: nil)
             adminPage.modalPresentationStyle = .fullScreen
         }
-        
-        let isValidated = authenticate(username: UsernameTxt.text, password: PasswordTxt.text)
-        if (isValidated){
-            LogInViewController.username = UsernameTxt.text!
-            present(homeVC, animated: true)
-            homeVC.modalPresentationStyle = .fullScreen
-        } else {
-            present(alertLogin, animated: true)
+        else{
+            let isValidated = authenticate(username: UsernameTxt.text, password: PasswordTxt.text)
+            if (isValidated){
+                           LogInViewController.username = UsernameTxt.text!
+                present(homeVC, animated: true)
+                homeVC.modalPresentationStyle = .fullScreen
+            } else {
+                present(alertLogin, animated: true)
+            }
         }
     }
     @IBAction func forgotPass(_ sender: Any) {

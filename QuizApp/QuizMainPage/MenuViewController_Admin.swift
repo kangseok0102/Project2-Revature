@@ -23,7 +23,7 @@ class MenuViewController_Admin: UIViewController, UICollectionViewDelegate, UICo
         menu?.setNavigationBarHidden(true, animated: false)
         SideMenuManager.default.leftMenuNavigationController = menu
         SideMenuManager.default.addPanGestureToPresent(toView: view)
-        
+        CreateQuizBttn.BttnDesign()
     }
 
     @IBAction func didTap(_ sender: Any) {

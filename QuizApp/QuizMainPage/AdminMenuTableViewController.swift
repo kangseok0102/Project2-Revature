@@ -12,8 +12,8 @@ import UIKit
 class AdminMenuTableViewController: UITableViewController {
     
     
-    var AdminSideMenuData = ["User List", "Feedback List"]
-    var AdminSideMenuImage = ["UserListIcon", "FeedbackIcon"]
+    var AdminSideMenuData = ["User List", "Feedback List", "  Log Out"]
+    var AdminSideMenuImage = ["UserListIcon", "FeedbackIcon", "LogOutIcon"]
     
     private let color = UIColor(red: 33/255.0, green: 33/255.0, blue: 33/255.0, alpha: 1)
     
@@ -60,6 +60,11 @@ class AdminMenuTableViewController: UITableViewController {
             let FeedbackListVC = storyboard.instantiateViewController(identifier: "feedbacklist") as! UserFeedbackTableViewController
                 present(FeedbackListVC, animated: true)
                 FeedbackListVC.modalPresentationStyle = .fullScreen
+        case 2:
+            LogInViewController.loginManager.logOut()
+            let LogInVC = storyboard.instantiateViewController(identifier: "LogInPage") as! LogInViewController
+                present(LogInVC, animated: true)
+                LogInVC.modalPresentationStyle = .fullScreen
         default:
             print("")
         }

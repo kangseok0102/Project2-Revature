@@ -19,7 +19,6 @@ class QuizPageTableViewController: UIViewController, UITableViewDelegate, UITabl
     static var categoryName: String = ""
     var currentPoints: Int64 = 0
     var totalCountOfQuestions: Int64 = 0
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         categoryLabel.text = currentCategory
@@ -41,6 +40,7 @@ class QuizPageTableViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "listChoice", for: indexPath)
+        
         cell.textLabel?.text = currentQuestion?.choice[indexPath.row].text
         return cell
     }

@@ -11,6 +11,11 @@ import Foundation
 
 class CreateQuizViewController: UIViewController {
     
+    @IBOutlet weak var EnterDetailsBttn: UIButton!
+    @IBOutlet weak var AdminPageBttn: UIButton!
+    @IBOutlet weak var categorynameTxt: UITextField!
+    @IBOutlet weak var numberofQuestionsTxt: UITextField!
+    
     @IBOutlet weak var categoryTextField: UITextField!
     @IBOutlet weak var numOfQuestionTextField: UITextField!
     var cqvc = CreateQuizViewController.self
@@ -19,6 +24,10 @@ class CreateQuizViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        EnterDetailsBttn.BttnDesign()
+        AdminPageBttn.BttnDesign()
+        categorynameTxt.TextBoxDesign()
+        numberofQuestionsTxt.TextBoxDesign()
     }
     
     @IBAction func setQuizProperties(_ sender: Any) {

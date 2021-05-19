@@ -2,7 +2,7 @@
 //  Scores+CoreDataProperties.swift
 //  
 //
-//  Created by Kangseok Lee on 5/17/21.
+//  Created by Kangseok Lee on 5/18/21.
 //
 //
 
@@ -16,8 +16,9 @@ extension Scores {
         return NSFetchRequest<Scores>(entityName: "Scores")
     }
 
-    @NSManaged public var correctAnswers: Int64
-    @NSManaged public var totalQuestions: Int64
-    @NSManaged public var scores: Categories?
+    @NSManaged public var category: [String]?
+    @NSManaged public var correctAnswers: [Int64]?
+    @NSManaged public var totalQuestions: [Int64]?
+    @NSManaged public var scores: Users?
 
 }
