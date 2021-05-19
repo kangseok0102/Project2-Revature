@@ -172,7 +172,7 @@
 		DB27B1B7264ED3E30062934C /* Questions+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Questions+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		DB27B1B9264ED3E30062934C /* Choices+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Choices+CoreDataClass.swift"; sourceTree = "<group>"; };
 		DB3D97C02653411A002D490A /* TestCreatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCreatorViewController.swift; sourceTree = "<group>"; };
-		DB82F6E7265368EA0029D721 /* Scores+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Scores+CoreDataProperties.swift"; path = "/Users/edwardguilllermo/Documents/Application Projects/Quiz App/Models/Scores+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
+		DB82F6E7265368EA0029D721 /* Scores+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Scores+CoreDataProperties.swift"; path = "/Users/admin/Documents/Project2-Revature/Models/Scores+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		FBF4FCEDCB01F065E21B0853 /* Pods_QuizAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QuizAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
