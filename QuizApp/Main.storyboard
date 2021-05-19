@@ -123,7 +123,7 @@
                                         <rect key="frame" x="88" y="468" width="238" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <integer key="value" value="15"/>
@@ -391,26 +391,6 @@
                                                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6m7-WH-2kX">
-                                                    <rect key="frame" x="8" y="311" width="237" height="45"/>
-                                                    <color key="backgroundColor" red="1" green="0.54032526739999998" blue="0.57398753459999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="237" id="Cuy-Sj-njv"/>
-                                                        <constraint firstAttribute="height" constant="45" id="KJA-HH-L3O"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Bold" family="Avenir Next Condensed" pointSize="25"/>
-                                                    <state key="normal" title="Take A Quiz">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <integer key="value" value="15"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <segue destination="Wc6-sN-8L8" kind="presentation" id="na5-aD-6BF"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAb-MQ-CFc">
                                                     <rect key="frame" x="8" y="248" width="237" height="56"/>
                                                     <constraints>
@@ -424,13 +404,10 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="4vj-ae-7qC" firstAttribute="top" secondItem="CGc-1e-zsV" secondAttribute="bottom" constant="8" symbolic="YES" id="1WE-H6-yff"/>
-                                                <constraint firstAttribute="trailing" secondItem="6m7-WH-2kX" secondAttribute="trailing" constant="8" id="1zO-32-Ysp"/>
                                                 <constraint firstItem="CGc-1e-zsV" firstAttribute="top" secondItem="N6q-AU-glV" secondAttribute="top" id="2NU-GZ-kK3"/>
-                                                <constraint firstItem="6m7-WH-2kX" firstAttribute="leading" secondItem="N6q-AU-glV" secondAttribute="leading" constant="8" id="6UT-fo-w5S"/>
                                                 <constraint firstItem="BAb-MQ-CFc" firstAttribute="leading" secondItem="N6q-AU-glV" secondAttribute="leading" constant="8" id="6aL-v3-3nT"/>
                                                 <constraint firstAttribute="trailing" secondItem="nTu-bM-fYH" secondAttribute="trailing" constant="58" id="CWr-5e-bJx"/>
                                                 <constraint firstItem="CGc-1e-zsV" firstAttribute="leading" secondItem="N6q-AU-glV" secondAttribute="leading" id="JKR-pK-4CC"/>
-                                                <constraint firstItem="6m7-WH-2kX" firstAttribute="top" secondItem="BAb-MQ-CFc" secondAttribute="bottom" constant="7" id="L6h-Zs-80G"/>
                                                 <constraint firstItem="4vj-ae-7qC" firstAttribute="leading" secondItem="N6q-AU-glV" secondAttribute="leading" constant="8" id="Owk-sk-gDO"/>
                                                 <constraint firstItem="nTu-bM-fYH" firstAttribute="top" secondItem="CGc-1e-zsV" secondAttribute="bottom" constant="8" symbolic="YES" id="bgz-QO-mQA"/>
                                                 <constraint firstItem="BAb-MQ-CFc" firstAttribute="top" secondItem="4vj-ae-7qC" secondAttribute="bottom" constant="8" symbolic="YES" id="dGa-ib-kTS"/>
@@ -631,12 +608,15 @@
                                                 <integer key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="submit:" destination="Irm-c0-9hj" eventType="touchUpInside" id="eWw-S1-DcR"/>
+                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ForgotPW" translatesAutoresizingMaskIntoConstraints="NO" id="QeH-x2-0nv">
                                         <rect key="frame" x="45" y="8" width="285" height="316"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dcg-W3-yZX">
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dcg-W3-yZX">
                                         <rect key="frame" x="68" y="366" width="238" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -655,7 +635,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter the email associated with your account" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5f-1T-fLW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enter the username associated with your account" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5f-1T-fLW">
                                 <rect key="frame" x="20" y="111" width="370" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -678,8 +658,8 @@
                         <color key="backgroundColor" red="0.17951798259999999" green="0.84070484909999998" blue="0.7287831132" alpha="0.8980392157" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <outlet property="PasswordTxt" destination="dcg-W3-yZX" id="pef-TY-tew"/>
                         <outlet property="SubmitBttn" destination="T2z-JO-tj0" id="Ra6-K9-YB7"/>
+                        <outlet property="usernameField" destination="dcg-W3-yZX" id="1L4-Jb-FhG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nzz-5I-L6Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -818,7 +798,7 @@
                                         <rect key="frame" x="68" y="374" width="238" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <integer key="value" value="15"/>
@@ -829,7 +809,7 @@
                                         <rect key="frame" x="68" y="315" width="238" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <integer key="value" value="15"/>
@@ -1513,7 +1493,7 @@
         <!--Quiz Page Table View Controller-->
         <scene sceneID="l2P-jS-0xn">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Wc6-sN-8L8" customClass="QuizPageTableViewController" customModule="QuizApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="quiz" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wc6-sN-8L8" customClass="QuizPageTableViewController" customModule="QuizApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SMH-OA-jN4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1746,8 +1726,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mjL-ed-vur"/>
         <segue reference="h3w-0K-w2E"/>
+        <segue reference="GxI-ZS-Y1F"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AdminIcon" width="50" height="50"/>

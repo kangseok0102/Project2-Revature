@@ -42,10 +42,10 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         present(menu!, animated: true)
     }
     
-    var QuizImg = ["JavaImg", "PythonImg", "SwiftImg", "SQLImg"]
-    var QuizIcon = ["Java", "Python", "Swift", "Sql"]
-    var QuizCt = ["Java Quiz", "Python Quiz", "Swift Quiz", "SQL Quiz"]
-    var QuizDp = ["You can test your Java skills with this quiz", "You can test your Python skills with this quiz", "You can test your Swift skills with this quiz", "You can test your SQL skills with this quiz"]
+    var QuizImg = ["JavaImg", "PythonImg", "SwiftImg", "SQLImg", "AndroidImg"]
+    var QuizIcon = ["Java", "Python", "Swift", "Sql","AndroidIcon"]
+    var QuizCt = ["Java Quiz", "Python Quiz", "Swift Quiz", "SQL Quiz", "Android Quiz"]
+    var QuizDp = ["You can test your Java skills with this quiz", "You can test your Python skills with this quiz", "You can test your Swift skills with this quiz", "You can test your SQL skills with this quiz", "You can test your Android skills with this quiz"]
     
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -76,6 +76,9 @@ class MenuViewController: UIViewController, UICollectionViewDelegate, UICollecti
         print(mvc.arrOfUniqueCategoryNames)
         mvc.categoryName = mvc.arrOfUniqueCategoryNames[indexPath.row]
         print("Category Name Saved is: \(mvc.categoryName)")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let quizVC = storyboard.instantiateViewController(identifier: "quiz")
+        present(quizVC, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

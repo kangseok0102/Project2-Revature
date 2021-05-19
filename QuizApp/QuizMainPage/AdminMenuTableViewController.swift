@@ -58,15 +58,12 @@ class AdminMenuTableViewController: UITableViewController {
         case 1:
             let FeedbackListVC = storyboard.instantiateViewController(identifier: "feedbacklist") as! UserFeedbackTableViewController
                 FeedbackListVC.modalPresentationStyle = .fullScreen
-<<<<<<< HEAD
+                present(FeedbackListVC, animated: true)
         case 2:
             LogInViewController.loginManager.logOut()
             let LogInVC = storyboard.instantiateViewController(identifier: "LogInPage") as! LogInViewController
                 present(LogInVC, animated: true)
                 LogInVC.modalPresentationStyle = .fullScreen
-=======
-                present(FeedbackListVC, animated: true)
->>>>>>> origin/main
         default:
             print("")
         }
