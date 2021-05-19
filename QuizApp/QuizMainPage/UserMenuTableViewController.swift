@@ -9,7 +9,6 @@ import UIKit
 
 class UserMenuTableViewController: UITableViewController {
     
-    
     var SideMenuData = ["  Ranking","User Feedback", "  Log Out"]
     var SideMenuImage = ["RankingIcon","FeedbackIcon", "LogOutIcon"]
     
@@ -54,17 +53,17 @@ class UserMenuTableViewController: UITableViewController {
         case 0:
             let RankingVC = storyboard.instantiateViewController(identifier: "rank") as!
                 RankingTableViewController
-                present(RankingVC, animated: true)
                 RankingVC.modalPresentationStyle = .fullScreen
+                present(RankingVC, animated: true)
         case 1:
             let FeedbackVC = storyboard.instantiateViewController(identifier: "feedback") as! FeedbackViewController
-                present(FeedbackVC, animated: true)
                 FeedbackVC.modalPresentationStyle = .fullScreen
+                present(FeedbackVC, animated: true)
         case 2:
             LogInViewController.loginManager.logOut()
             let LogInVC = storyboard.instantiateViewController(identifier: "LogInPage") as! LogInViewController
-                present(LogInVC, animated: true)
                 LogInVC.modalPresentationStyle = .fullScreen
+                present(LogInVC, animated: true)
         default:
             print("")
         }
