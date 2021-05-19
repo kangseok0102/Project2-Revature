@@ -108,6 +108,25 @@ class DatabaseHelper {
         }
     }
     
+    //Update's a user's password
+    func updateUserPassword(object : [String : String]) {
+        var user = Users()
+        let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")
+        fetchReq.predicate = NSPredicate(format: "username == %@", object["username"]!)
+        do {
+            let res = try context?.fetch(fetchReq)
+            if (res?.count != 0) {
+                user = res?.first as! Users
+                user.password = object["password"]
+                try context?.save()
+            }
+            
+        } catch {
+            print("fetch failed")
+        }
+        
+    }
+    
     func fetchAllUserData() -> [Users] {
         var user = [Users]()
         let fetchReq = NSFetchRequest<NSManagedObject>.init(entityName: "Users")

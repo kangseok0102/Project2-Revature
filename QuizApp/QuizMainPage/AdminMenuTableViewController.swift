@@ -52,19 +52,21 @@ class AdminMenuTableViewController: UITableViewController {
         
         switch indexPath.item {
         case 0:
-            let UserListVC = storyboard.instantiateViewController(identifier: "userlist") as!
-                UserListTableViewController
-                present(UserListVC, animated: true)
+            let UserListVC = storyboard.instantiateViewController(identifier: "userlist") as! UserListTableViewController
                 UserListVC.modalPresentationStyle = .fullScreen
+                present(UserListVC, animated: true)
         case 1:
             let FeedbackListVC = storyboard.instantiateViewController(identifier: "feedbacklist") as! UserFeedbackTableViewController
-                present(FeedbackListVC, animated: true)
                 FeedbackListVC.modalPresentationStyle = .fullScreen
+<<<<<<< HEAD
         case 2:
             LogInViewController.loginManager.logOut()
             let LogInVC = storyboard.instantiateViewController(identifier: "LogInPage") as! LogInViewController
                 present(LogInVC, animated: true)
                 LogInVC.modalPresentationStyle = .fullScreen
+=======
+                present(FeedbackListVC, animated: true)
+>>>>>>> origin/main
         default:
             print("")
         }
