@@ -46,6 +46,7 @@ Email: bmbachow@gmail.com
 
 #### Kangseok Lee
 Github: kangseok0102
+Email: kangseok0102@gmail.com
 
 #### Edward Guillermo
 Github: guilmeister
