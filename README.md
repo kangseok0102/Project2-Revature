@@ -23,7 +23,7 @@ A quiz application that enables users to measure their proficiency with differen
 
 ## Getting Started
 
-1. git clone https://github.com/bmbachow/Project2-Revature.git
+1. git clone https://github.com/kangseok0102/Project2-Revature.git
 2. open the QuizApp.xcworkspace file
 
 
