@@ -50,6 +50,7 @@ Email: kangseok0102@gmail.com
 
 #### Edward Guillermo
 Github: guilmeister
+Email: ebg.edwardbguillermo@yahoo.com
 
 #### Blaire Crits-Christoph
 Github: bcrits
