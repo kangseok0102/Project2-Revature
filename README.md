@@ -1,8 +1,8 @@
 # Quiz Box
 
-## An iOS Quiz Application
+## Project Description
 
-Here goes your awesome project description!
+A quiz application that enables users to measure their proficiency with different technologies such as Java, iOS , Swift, and Android.
 
 ## Technologies Used
 
